@@ -1,0 +1,8 @@
+site_name: bayesian-filters-smoothers
+site_url: https://github.com/ninadkgaikwad/bayseian-filters-smoothers
+nav:
+  - Home: index.md
+  - User Guide: userguide.md
+  - API: api_reference.md
+
+theme: readthedocs

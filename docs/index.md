@@ -24,6 +24,9 @@ The package can be found on pypi hence you can install it using pip
 pip install bayesian-filters-smoothers
 ```
 
+### Documentation
+You can check out the full documentation (here)[https://ninadkgaikwad.github.io/bayseian-filters-smoothers/]
+
 ### Contribution
 Contributions are welcome.
 Notice a bug let us know. Thanks!

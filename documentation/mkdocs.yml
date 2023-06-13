@@ -6,3 +6,11 @@ nav:
   - API: api_reference.md
 
 theme: readthedocs
+
+plugins: 
+    - mkdocstrings:
+        handlers:
+            python:
+                setup_commands:
+                    - import sys
+                    - sys.path.append('../bayesian-filters-smoothers/bayesian_filters_smoothers/')

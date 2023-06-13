@@ -6,3 +6,7 @@ nav:
   - API: api_reference.md
 
 theme: readthedocs
+
+
+plugins: 
+    - mkdocstrings:

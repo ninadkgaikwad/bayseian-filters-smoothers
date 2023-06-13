@@ -25,3 +25,5 @@ This page gives an overview of all the Bayesian Filters and Smoothers implemente
 
 ***KF***<a name='KalmanFilter'></a>
 Kalman Filter is the simplest Bayesian Filter for a linear system
+
+::: bayesian_filters_smoothers

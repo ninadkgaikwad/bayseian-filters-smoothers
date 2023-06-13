@@ -32,5 +32,15 @@ Misc variables:
 '''
 
 def addnum(num1,num2):
+    """Adds two numbers.
+    
+    Args:
+        num1 (int/float): The first number.
+        num2 (int/float): The second number.
 
-    return num1+num2
+    Returns:
+        num3 (int/float): Result of addition of num1 and num2.
+
+    """
+    num3 = num1+num2
+    return num3

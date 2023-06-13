@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "bayesian-filters-smoothers"
+version = "0.0.1"
+description = "A unified library for Bayesian filter and smoother algorithms based on the book 'Bayesian Filtering and Smoothing' - Simo Sarkka "
+authors = ["Ninad Kiran Gaikwad <ninadkgaikwad@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/ninadkgaikwad/bayseian-filters-smoothers"
+repository = "https://github.com/ninadkgaikwad/bayseian-filters-smoothers"
+keywords = ["Bayesian-Filters", "Bayesian-Smoothers"]
+packages = [{include = "bayesian_filters_smoothers"}]
+
+classifiers = [
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3.9",
+        "Operating System :: OS Independent",
+    ]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+

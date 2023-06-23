@@ -13,7 +13,8 @@ nav:
 theme: readthedocs
 
 
-plugins: 
+plugins:
+    - with-pdf
     - mkdocs-jupyter
     - mkdocstrings:
         handlers:

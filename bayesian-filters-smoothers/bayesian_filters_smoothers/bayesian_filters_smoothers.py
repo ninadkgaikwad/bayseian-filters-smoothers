@@ -8,8 +8,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Importing internal modules
-from .utils import utils 
-
 """Bayesian Filters and Smoothers
 
 This module implements the following Bayesian Filters and Smoothers:
@@ -42,22 +40,6 @@ Misc variables:
 
     __version__
 """
-
-def addnum(num1,num2):
-    """Adds two numbers.
-    
-    Args:
-        num1 (int/float): The first number.
-        num2 (int/float): The second number.
-
-    Returns:
-        num3 (int/float): Result of addition of num1 and num2.
-
-    """
-    num4 = utils.subnum(num1,num2)
-
-    num3 = num2+num4
-    return num3
 
 class Kalman_Filter_Smoother:
     """Creates an object to handle Kalman Filtering and Smoothing for Linear Time Invariant (LTI) System
@@ -985,6 +967,35 @@ class Unscented_Kalman_Filter_Smoother:
 
         # Return statement
         return G_k_list, m_k_s_list, P_k_s_list
+    
+
+def subnum(num1,num2):
+    """Subtracts two numbers.
+    
+    Args:
+        num1 (int/float): The first number.
+        num2 (int/float): The second number.
+
+    Returns:
+        num3 (int/float): Result of addition of num1 and num2.
+
+    """
+    num3 = num1-num2
+    return num3
+
+def addnum(num1,num2):
+    """Adds two numbers.
+    
+    Args:
+        num1 (int/float): The first number.
+        num2 (int/float): The second number.
+
+    Returns:
+        num3 (int/float): Result of addition of num1 and num2.
+
+    """
+    num3 = num1+num2
+    return num3
 
         
 

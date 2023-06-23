@@ -1,6 +1,5 @@
 from bayesian_filters_smoothers import __version__
 from bayesian_filters_smoothers import addnum
-from bayesian_filters_smoothers.utils import subnum
 
 def test_version():
     assert __version__ == '0.0.1'

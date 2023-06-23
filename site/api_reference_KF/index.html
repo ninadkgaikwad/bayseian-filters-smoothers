@@ -1,90 +1,83 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+
+<html class="writer-html5" lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/ninadkgaikwad/bayseian-filters-smoothers/api_reference_KF/" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Kalman Filter-Smoother - bayesian-filters-smoothers</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
-    
-      <script>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://github.com/ninadkgaikwad/bayseian-filters-smoothers/api_reference_KF/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Kalman Filter-Smoother - bayesian-filters-smoothers</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
+<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
+<script>
         // Current page data
         var mkdocs_page_name = "Kalman Filter-Smoother";
         var mkdocs_page_input_path = "api_reference_KF.md";
         var mkdocs_page_url = "/ninadkgaikwad/bayseian-filters-smoothers/api_reference_KF/";
       </script>
-    
-    <script src="../js/jquery-3.6.0.min.js" defer></script>
-    <!--[if lt IE 9]>
+<script defer="" src="../js/jquery-3.6.0.min.js"></script>
+<!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
-</head>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link href="..\pdf\document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
 <body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> bayesian-filters-smoothers
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> bayesian-filters-smoothers
         </a>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">API</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Kalman Filter-Smoother</a>
-    <ul class="current">
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../api_reference_EKF/">Extended Kalman Filter-Smoother</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../api_reference_UKF/">Unscented Kalman Filter-Smoother</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../api_reference_GF/">Gaussian Filter-Smoother</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../api_reference_PF/">Particle Filter-Smoother</a>
-                  </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../userguide/">User Guide</a>
-                </li>
-              </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">bayesian-filters-smoothers</a>
-        
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-          <li>API &raquo;</li>
-      <li>Kalman Filter-Smoother</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h3 id="api-reference">API Reference</h3>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Kalman Filter-Smoother</a>
+<ul class="current">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference_EKF/">Extended Kalman Filter-Smoother</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference_UKF/">Unscented Kalman Filter-Smoother</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference_GF/">Gaussian Filter-Smoother</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference_PF/">Particle Filter-Smoother</a>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/">User Guide</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">bayesian-filters-smoothers</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a> »</li>
+<li>API »</li>
+<li>Kalman Filter-Smoother</li>
+<li class="wy-breadcrumbs-aside">
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h3 id="api-reference">API Reference</h3>
 <p>This page gives an overview of all the Bayesian Filters and Smoothers implemented in the package</p>
 <ul>
 <li>
@@ -105,92 +98,84 @@
 </ul>
 <p><strong><em>Kalman_Filter_Smoother Class:</em></strong>
 Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a linear system with gaussian process/measurement errors</p>
-
-
 <div class="doc doc-object doc-class">
-
-
 <a id="bayesian-filters-smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother"></a>
-  <div class="doc doc-contents first">
-
-  
-      <p>Creates an object to handle Kalman Filtering and Smoothing for Linear Time Invariant (LTI) System</p>
-
+<div class="doc doc-contents first">
+<p>Creates an object to handle Kalman Filtering and Smoothing for Linear Time Invariant (LTI) System</p>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Attributes:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-              <b>A</b>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Attributes:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b>A</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>LTI system matrix</p>
-              </div>
-            </li>
-            <li>
-              <b>B</b>
+<p>LTI system matrix</p>
+</div>
+</li>
+<li>
+<b>B</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>LTI input matrix</p>
-              </div>
-            </li>
-            <li>
-              <b>C</b>
+<p>LTI input matrix</p>
+</div>
+</li>
+<li>
+<b>C</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>LTI output matrix</p>
-              </div>
-            </li>
-            <li>
-              <b>m_k</b>
+<p>LTI output matrix</p>
+</div>
+</li>
+<li>
+<b>m_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>State mean vector</p>
-              </div>
-            </li>
-            <li>
-              <b>P_k</b>
+<p>State mean vector</p>
+</div>
+</li>
+<li>
+<b>P_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>State covariance matrix</p>
-              </div>
-            </li>
-            <li>
-              <b>Q</b>
+<p>State covariance matrix</p>
+</div>
+</li>
+<li>
+<b>Q</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>Process error covariance matrix</p>
-              </div>
-            </li>
-            <li>
-              <b>R</b>
+<p>Process error covariance matrix</p>
+</div>
+</li>
+<li>
+<b>R</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>Measurement error covariance matrix</p>
-              </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<p>Measurement error covariance matrix</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
-
-        <details class="quote">
-          <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 62</span>
+<details class="quote">
+<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 62</span>
 <span class="normal"> 63</span>
 <span class="normal"> 64</span>
 <span class="normal"> 65</span>
@@ -402,7 +387,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="normal">271</span>
 <span class="normal">272</span>
 <span class="normal">273</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Kalman_Filter_Smoother</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates an object to handle Kalman Filtering and Smoothing for Linear Time Invariant (LTI) System</span>
+<span class="w">    </span><span class="sd">"""Creates an object to handle Kalman Filtering and Smoothing for Linear Time Invariant (LTI) System</span>
 
 <span class="sd">    Attributes:</span>
 <span class="sd">        A (numpy.array): LTI system matrix</span>
@@ -412,10 +397,10 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="sd">        P_k (numpy.array): State covariance matrix</span>
 <span class="sd">        Q (numpy.array): Process error covariance matrix</span>
 <span class="sd">        R (numpy.array): Measurement error covariance matrix</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">m_k</span><span class="p">,</span> <span class="n">P_k</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the instance of class Kalman_Filter_Smoother</span>
+<span class="w">        </span><span class="sd">"""Initializes the instance of class Kalman_Filter_Smoother</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            A (numpy.array): LTI system matrix</span>
@@ -425,7 +410,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="sd">            P_k (numpy.array): State covariance matrix</span>
 <span class="sd">            Q (numpy.array): Process error covariance matrix</span>
 <span class="sd">            R (numpy.array): Measurement error covariance matrix</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="c1"># Initializing the instance</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span>
@@ -437,47 +422,47 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
         <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">R</span>
 
     <span class="k">def</span> <span class="nf">set_A</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the A array for a linear time-varying (LTV) system</span>
+<span class="w">        </span><span class="sd">"""Sets the A array for a linear time-varying (LTV) system</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            A (numpy.array): LTV system matrix</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span>
 
     <span class="k">def</span> <span class="nf">set_B</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the B matrix for a linear time-varying (LTV) system</span>
+<span class="w">        </span><span class="sd">"""Sets the B matrix for a linear time-varying (LTV) system</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            B (numpy.array): LTV input matrix</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">B</span> <span class="o">=</span> <span class="n">B</span>
 
     <span class="k">def</span> <span class="nf">set_C</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the C matrix for a linear time-varying (LTV) system</span>
+<span class="w">        </span><span class="sd">"""Sets the C matrix for a linear time-varying (LTV) system</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            C (numpy.array): LTV output matrix</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="n">C</span>
 
     <span class="k">def</span> <span class="nf">set_Q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Q</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the Q matrix for the system</span>
+<span class="w">        </span><span class="sd">"""Sets the Q matrix for the system</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            Q (numpy.array): Process error covariance matrix</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span>
 
     <span class="k">def</span> <span class="nf">set_R</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the R matrix for the system</span>
+<span class="w">        </span><span class="sd">"""Sets the R matrix for the system</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            R (numpy.array): Measurement error covariance matrix</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">R</span>
 
     <span class="k">def</span> <span class="nf">Kalman_Predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs the predict step of the Kalman Filter</span>
+<span class="w">        </span><span class="sd">"""Performs the predict step of the Kalman Filter</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            u_k (numpy.array): Input to the system</span>
@@ -485,7 +470,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="sd">        Returns:</span>
 <span class="sd">            m_k_ (numpy.array): Predicted state mean vector</span>
 <span class="sd">            P_k_ (numpy.array): Predicted state covariance matrix</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="c1"># Computing predicted mean of the states</span>
         <span class="n">m_k_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_k</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">u_k</span><span class="p">)</span>
@@ -497,7 +482,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
         <span class="k">return</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span>
 
     <span class="k">def</span> <span class="nf">Kalman_Update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_k</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs the update step of the Kalman Filter</span>
+<span class="w">        </span><span class="sd">"""Performs the update step of the Kalman Filter</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            y_k (numpy.array): New measurement from the system</span>
@@ -508,7 +493,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="sd">            v_k (numpy.array): Updated measurement error</span>
 <span class="sd">            S_k (numpy.array): Updated measurement covariance matrix</span>
 <span class="sd">            K_k (numpy.array): Updated Kalman Gain</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="c1"># Computing measurement error</span>
         <span class="n">v_k</span> <span class="o">=</span> <span class="n">y_k</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">))</span>
@@ -529,7 +514,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
         <span class="k">return</span> <span class="n">v_k</span><span class="p">,</span> <span class="n">S_k</span><span class="p">,</span> <span class="n">K_k</span>
 
     <span class="k">def</span> <span class="nf">Kalman_Smoother</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k_list</span><span class="p">,</span> <span class="n">y_k_list</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs the smoothening step of the Kalman Smoother</span>
+<span class="w">        </span><span class="sd">"""Performs the smoothening step of the Kalman Smoother</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            u_k_list (list of numpy.array): List of inputs to the system</span>
@@ -539,7 +524,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="sd">            G_k_list (list of numpy.array): List of Kalman Smoother Gain</span>
 <span class="sd">            m_k_s (list of numpy.array): List of smoothed state vectors</span>
 <span class="sd">            P_k_s (list of numpy.array): List of smoothed state covarivance matrices</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="c1"># Computing length of data</span>
         <span class="n">Data_Len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_k_list</span><span class="p">)</span>
@@ -614,89 +599,69 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
         <span class="c1"># Return statement</span>
         <span class="k">return</span> <span class="n">G_k_list</span><span class="p">,</span> <span class="n">m_k_s_list</span><span class="p">,</span> <span class="n">P_k_s_list</span>
 </code></pre></div></td></tr></table></div>
-        </details>
-
-  
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
+</details>
+<div class="doc doc-children">
 <div class="doc doc-object doc-function">
-
-
-
-<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.Kalman_Predict" class="doc doc-heading">
+<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.Kalman_Predict">
 <code class="highlight language-python"><span class="n">Kalman_Predict</span><span class="p">(</span><span class="n">u_k</span><span class="p">)</span></code>
-
 </h2>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Performs the predict step of the Kalman Filter</p>
-
+<div class="doc doc-contents">
+<p>Performs the predict step of the Kalman Filter</p>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-              <b>u_k</b>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Parameters:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b>u_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>Input to the system</p>
-              </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<p>Input to the system</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-      <ul class="first simple">
-          <li>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Returns:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
 <b>m_k_</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-              <p>Predicted state mean vector</p>
-            </div>
-          </li>
-          <li>
+<p>Predicted state mean vector</p>
+</div>
+</li>
+<li>
 <b>P_k_</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-              <p>Predicted state covariance matrix</p>
-            </div>
-          </li>
-      </ul>
-    </td>
-    </tr>
-  </tbody>
+<p>Predicted state covariance matrix</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
-      <details class="quote">
-        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">137</span>
+<details class="quote">
+<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">137</span>
 <span class="normal">138</span>
 <span class="normal">139</span>
 <span class="normal">140</span>
@@ -715,7 +680,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="normal">153</span>
 <span class="normal">154</span>
 <span class="normal">155</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Kalman_Predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs the predict step of the Kalman Filter</span>
+<span class="w">    </span><span class="sd">"""Performs the predict step of the Kalman Filter</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        u_k (numpy.array): Input to the system</span>
@@ -723,7 +688,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="sd">    Returns:</span>
 <span class="sd">        m_k_ (numpy.array): Predicted state mean vector</span>
 <span class="sd">        P_k_ (numpy.array): Predicted state covariance matrix</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="c1"># Computing predicted mean of the states</span>
     <span class="n">m_k_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">m_k</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="n">u_k</span><span class="p">)</span>
@@ -734,95 +699,85 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
     <span class="c1"># Return statement</span>
     <span class="k">return</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span>
 </code></pre></div></td></tr></table></div>
-      </details>
-  </div>
-
+</details>
 </div>
-
+</div>
 <div class="doc doc-object doc-function">
-
-
-
-<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.Kalman_Smoother" class="doc doc-heading">
+<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.Kalman_Smoother">
 <code class="highlight language-python"><span class="n">Kalman_Smoother</span><span class="p">(</span><span class="n">u_k_list</span><span class="p">,</span> <span class="n">y_k_list</span><span class="p">)</span></code>
-
 </h2>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Performs the smoothening step of the Kalman Smoother</p>
-
+<div class="doc doc-contents">
+<p>Performs the smoothening step of the Kalman Smoother</p>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-              <b>u_k_list</b>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Parameters:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b>u_k_list</b>
                   (<code>list of numpy.array</code>)
               –
               <div class="doc-md-description">
-                <p>List of inputs to the system</p>
-              </div>
-            </li>
-            <li>
-              <b>y_k_list</b>
+<p>List of inputs to the system</p>
+</div>
+</li>
+<li>
+<b>y_k_list</b>
                   (<code>list of numpy.array</code>)
               –
               <div class="doc-md-description">
-                <p>List of measurements from the system</p>
-              </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<p>List of measurements from the system</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-      <ul class="first simple">
-          <li>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Returns:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
 <b>G_k_list</b>(                <code>list of numpy.array</code>
 )            –
             <div class="doc-md-description">
-              <p>List of Kalman Smoother Gain</p>
-            </div>
-          </li>
-          <li>
+<p>List of Kalman Smoother Gain</p>
+</div>
+</li>
+<li>
 <b>m_k_s</b>(                <code>list of numpy.array</code>
 )            –
             <div class="doc-md-description">
-              <p>List of smoothed state vectors</p>
-            </div>
-          </li>
-          <li>
+<p>List of smoothed state vectors</p>
+</div>
+</li>
+<li>
 <b>P_k_s</b>(                <code>list of numpy.array</code>
 )            –
             <div class="doc-md-description">
-              <p>List of smoothed state covarivance matrices</p>
-            </div>
-          </li>
-      </ul>
-    </td>
-    </tr>
-  </tbody>
+<p>List of smoothed state covarivance matrices</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
-      <details class="quote">
-        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">189</span>
+<details class="quote">
+<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">189</span>
 <span class="normal">190</span>
 <span class="normal">191</span>
 <span class="normal">192</span>
@@ -907,7 +862,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="normal">271</span>
 <span class="normal">272</span>
 <span class="normal">273</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Kalman_Smoother</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k_list</span><span class="p">,</span> <span class="n">y_k_list</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs the smoothening step of the Kalman Smoother</span>
+<span class="w">    </span><span class="sd">"""Performs the smoothening step of the Kalman Smoother</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        u_k_list (list of numpy.array): List of inputs to the system</span>
@@ -917,7 +872,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="sd">        G_k_list (list of numpy.array): List of Kalman Smoother Gain</span>
 <span class="sd">        m_k_s (list of numpy.array): List of smoothed state vectors</span>
 <span class="sd">        P_k_s (list of numpy.array): List of smoothed state covarivance matrices</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="c1"># Computing length of data</span>
     <span class="n">Data_Len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_k_list</span><span class="p">)</span>
@@ -992,103 +947,93 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
     <span class="c1"># Return statement</span>
     <span class="k">return</span> <span class="n">G_k_list</span><span class="p">,</span> <span class="n">m_k_s_list</span><span class="p">,</span> <span class="n">P_k_s_list</span>
 </code></pre></div></td></tr></table></div>
-      </details>
-  </div>
-
+</details>
 </div>
-
+</div>
 <div class="doc doc-object doc-function">
-
-
-
-<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.Kalman_Update" class="doc doc-heading">
+<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.Kalman_Update">
 <code class="highlight language-python"><span class="n">Kalman_Update</span><span class="p">(</span><span class="n">y_k</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">)</span></code>
-
 </h2>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Performs the update step of the Kalman Filter</p>
-
+<div class="doc doc-contents">
+<p>Performs the update step of the Kalman Filter</p>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-              <b>y_k</b>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Parameters:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b>y_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>New measurement from the system</p>
-              </div>
-            </li>
-            <li>
-              <b>m_k_</b>
+<p>New measurement from the system</p>
+</div>
+</li>
+<li>
+<b>m_k_</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>Predicted state mean vector</p>
-              </div>
-            </li>
-            <li>
-              <b>P_k_</b>
+<p>Predicted state mean vector</p>
+</div>
+</li>
+<li>
+<b>P_k_</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>Predicted state covariance matrix</p>
-              </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<p>Predicted state covariance matrix</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-    <th class="field-name">Returns:</th>
-    <td class="field-body">
-      <ul class="first simple">
-          <li>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Returns:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
 <b>v_k</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-              <p>Updated measurement error</p>
-            </div>
-          </li>
-          <li>
+<p>Updated measurement error</p>
+</div>
+</li>
+<li>
 <b>S_k</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-              <p>Updated measurement covariance matrix</p>
-            </div>
-          </li>
-          <li>
+<p>Updated measurement covariance matrix</p>
+</div>
+</li>
+<li>
 <b>K_k</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-              <p>Updated Kalman Gain</p>
-            </div>
-          </li>
-      </ul>
-    </td>
-    </tr>
-  </tbody>
+<p>Updated Kalman Gain</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
-      <details class="quote">
-        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">157</span>
+<details class="quote">
+<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">157</span>
 <span class="normal">158</span>
 <span class="normal">159</span>
 <span class="normal">160</span>
@@ -1119,7 +1064,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="normal">185</span>
 <span class="normal">186</span>
 <span class="normal">187</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Kalman_Update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_k</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs the update step of the Kalman Filter</span>
+<span class="w">    </span><span class="sd">"""Performs the update step of the Kalman Filter</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        y_k (numpy.array): New measurement from the system</span>
@@ -1130,7 +1075,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="sd">        v_k (numpy.array): Updated measurement error</span>
 <span class="sd">        S_k (numpy.array): Updated measurement covariance matrix</span>
 <span class="sd">        K_k (numpy.array): Updated Kalman Gain</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="c1"># Computing measurement error</span>
     <span class="n">v_k</span> <span class="o">=</span> <span class="n">y_k</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">))</span>
@@ -1150,99 +1095,89 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
     <span class="c1"># Return statement</span>
     <span class="k">return</span> <span class="n">v_k</span><span class="p">,</span> <span class="n">S_k</span><span class="p">,</span> <span class="n">K_k</span>
 </code></pre></div></td></tr></table></div>
-      </details>
-  </div>
-
+</details>
 </div>
-
+</div>
 <div class="doc doc-object doc-function">
-
-
-
-<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.__init__" class="doc doc-heading">
+<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.__init__">
 <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">m_k</span><span class="p">,</span> <span class="n">P_k</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span></code>
-
 </h2>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Initializes the instance of class Kalman_Filter_Smoother</p>
-
+<div class="doc doc-contents">
+<p>Initializes the instance of class Kalman_Filter_Smoother</p>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-              <b>A</b>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Parameters:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b>A</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>LTI system matrix</p>
-              </div>
-            </li>
-            <li>
-              <b>B</b>
+<p>LTI system matrix</p>
+</div>
+</li>
+<li>
+<b>B</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>LTI input matrix</p>
-              </div>
-            </li>
-            <li>
-              <b>C</b>
+<p>LTI input matrix</p>
+</div>
+</li>
+<li>
+<b>C</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>LTI output matrix</p>
-              </div>
-            </li>
-            <li>
-              <b>m_k</b>
+<p>LTI output matrix</p>
+</div>
+</li>
+<li>
+<b>m_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>State mean vector</p>
-              </div>
-            </li>
-            <li>
-              <b>P_k</b>
+<p>State mean vector</p>
+</div>
+</li>
+<li>
+<b>P_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>State covariance matrix</p>
-              </div>
-            </li>
-            <li>
-              <b>Q</b>
+<p>State covariance matrix</p>
+</div>
+</li>
+<li>
+<b>Q</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>Process error covariance matrix</p>
-              </div>
-            </li>
-            <li>
-              <b>R</b>
+<p>Process error covariance matrix</p>
+</div>
+</li>
+<li>
+<b>R</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>Measurement error covariance matrix</p>
-              </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<p>Measurement error covariance matrix</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
-      <details class="quote">
-        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">75</span>
+<details class="quote">
+<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">75</span>
 <span class="normal">76</span>
 <span class="normal">77</span>
 <span class="normal">78</span>
@@ -1263,7 +1198,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="normal">93</span>
 <span class="normal">94</span>
 <span class="normal">95</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">m_k</span><span class="p">,</span> <span class="n">P_k</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Initializes the instance of class Kalman_Filter_Smoother</span>
+<span class="w">    </span><span class="sd">"""Initializes the instance of class Kalman_Filter_Smoother</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        A (numpy.array): LTI system matrix</span>
@@ -1273,7 +1208,7 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
 <span class="sd">        P_k (numpy.array): State covariance matrix</span>
 <span class="sd">        Q (numpy.array): Process error covariance matrix</span>
 <span class="sd">        R (numpy.array): Measurement error covariance matrix</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="c1"># Initializing the instance</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span>
@@ -1284,351 +1219,282 @@ Kalman Filter/Smoother is the simplest Bayesian Filter/Smoother applied to a lin
     <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">R</span>
 </code></pre></div></td></tr></table></div>
-      </details>
-  </div>
-
+</details>
 </div>
-
+</div>
 <div class="doc doc-object doc-function">
-
-
-
-<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.set_A" class="doc doc-heading">
+<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.set_A">
 <code class="highlight language-python"><span class="n">set_A</span><span class="p">(</span><span class="n">A</span><span class="p">)</span></code>
-
 </h2>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Sets the A array for a linear time-varying (LTV) system</p>
-
+<div class="doc doc-contents">
+<p>Sets the A array for a linear time-varying (LTV) system</p>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-              <b>A</b>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Parameters:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b>A</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>LTV system matrix</p>
-              </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<p>LTV system matrix</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
-      <details class="quote">
-        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 97</span>
+<details class="quote">
+<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 97</span>
 <span class="normal"> 98</span>
 <span class="normal"> 99</span>
 <span class="normal">100</span>
 <span class="normal">101</span>
 <span class="normal">102</span>
 <span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_A</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the A array for a linear time-varying (LTV) system</span>
+<span class="w">    </span><span class="sd">"""Sets the A array for a linear time-varying (LTV) system</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        A (numpy.array): LTV system matrix</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span>
 </code></pre></div></td></tr></table></div>
-      </details>
-  </div>
-
+</details>
 </div>
-
+</div>
 <div class="doc doc-object doc-function">
-
-
-
-<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.set_B" class="doc doc-heading">
+<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.set_B">
 <code class="highlight language-python"><span class="n">set_B</span><span class="p">(</span><span class="n">B</span><span class="p">)</span></code>
-
 </h2>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Sets the B matrix for a linear time-varying (LTV) system</p>
-
+<div class="doc doc-contents">
+<p>Sets the B matrix for a linear time-varying (LTV) system</p>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-              <b>B</b>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Parameters:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b>B</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>LTV input matrix</p>
-              </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<p>LTV input matrix</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
-      <details class="quote">
-        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">105</span>
+<details class="quote">
+<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">105</span>
 <span class="normal">106</span>
 <span class="normal">107</span>
 <span class="normal">108</span>
 <span class="normal">109</span>
 <span class="normal">110</span>
 <span class="normal">111</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_B</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the B matrix for a linear time-varying (LTV) system</span>
+<span class="w">    </span><span class="sd">"""Sets the B matrix for a linear time-varying (LTV) system</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        B (numpy.array): LTV input matrix</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">B</span> <span class="o">=</span> <span class="n">B</span>
 </code></pre></div></td></tr></table></div>
-      </details>
-  </div>
-
+</details>
 </div>
-
+</div>
 <div class="doc doc-object doc-function">
-
-
-
-<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.set_C" class="doc doc-heading">
+<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.set_C">
 <code class="highlight language-python"><span class="n">set_C</span><span class="p">(</span><span class="n">C</span><span class="p">)</span></code>
-
 </h2>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Sets the C matrix for a linear time-varying (LTV) system</p>
-
+<div class="doc doc-contents">
+<p>Sets the C matrix for a linear time-varying (LTV) system</p>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-              <b>C</b>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Parameters:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b>C</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>LTV output matrix</p>
-              </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<p>LTV output matrix</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
-      <details class="quote">
-        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">113</span>
+<details class="quote">
+<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">113</span>
 <span class="normal">114</span>
 <span class="normal">115</span>
 <span class="normal">116</span>
 <span class="normal">117</span>
 <span class="normal">118</span>
 <span class="normal">119</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_C</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the C matrix for a linear time-varying (LTV) system</span>
+<span class="w">    </span><span class="sd">"""Sets the C matrix for a linear time-varying (LTV) system</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        C (numpy.array): LTV output matrix</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="n">C</span>
 </code></pre></div></td></tr></table></div>
-      </details>
-  </div>
-
+</details>
 </div>
-
+</div>
 <div class="doc doc-object doc-function">
-
-
-
-<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.set_Q" class="doc doc-heading">
+<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.set_Q">
 <code class="highlight language-python"><span class="n">set_Q</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span></code>
-
 </h2>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Sets the Q matrix for the system</p>
-
+<div class="doc doc-contents">
+<p>Sets the Q matrix for the system</p>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-              <b>Q</b>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Parameters:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b>Q</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>Process error covariance matrix</p>
-              </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<p>Process error covariance matrix</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
-      <details class="quote">
-        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">121</span>
+<details class="quote">
+<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">121</span>
 <span class="normal">122</span>
 <span class="normal">123</span>
 <span class="normal">124</span>
 <span class="normal">125</span>
 <span class="normal">126</span>
 <span class="normal">127</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_Q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Q</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the Q matrix for the system</span>
+<span class="w">    </span><span class="sd">"""Sets the Q matrix for the system</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        Q (numpy.array): Process error covariance matrix</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span>
 </code></pre></div></td></tr></table></div>
-      </details>
-  </div>
-
+</details>
 </div>
-
+</div>
 <div class="doc doc-object doc-function">
-
-
-
-<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.set_R" class="doc doc-heading">
+<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Kalman_Filter_Smoother.set_R">
 <code class="highlight language-python"><span class="n">set_R</span><span class="p">(</span><span class="n">R</span><span class="p">)</span></code>
-
 </h2>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Sets the R matrix for the system</p>
-
+<div class="doc doc-contents">
+<p>Sets the R matrix for the system</p>
 <table class="field-list">
-  <colgroup>
-    <col class="field-name" />
-    <col class="field-body" />
-  </colgroup>
-  <tbody valign="top">
-    <tr class="field">
-      <th class="field-name">Parameters:</th>
-      <td class="field-body">
-        <ul class="first simple">
-            <li>
-              <b>R</b>
+<colgroup>
+<col class="field-name"/>
+<col class="field-body"/>
+</colgroup>
+<tbody valign="top">
+<tr class="field">
+<th class="field-name">Parameters:</th>
+<td class="field-body">
+<ul class="first simple">
+<li>
+<b>R</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-                <p>Measurement error covariance matrix</p>
-              </div>
-            </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<p>Measurement error covariance matrix</p>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
-      <details class="quote">
-        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">129</span>
+<details class="quote">
+<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">129</span>
 <span class="normal">130</span>
 <span class="normal">131</span>
 <span class="normal">132</span>
 <span class="normal">133</span>
 <span class="normal">134</span>
 <span class="normal">135</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_R</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the R matrix for the system</span>
+<span class="w">    </span><span class="sd">"""Sets the R matrix for the system</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        R (numpy.array): Measurement error covariance matrix</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">R</span>
 </code></pre></div></td></tr></table></div>
-      </details>
-  </div>
-
+</details>
 </div>
-
-
-
-  </div>
-
-  </div>
-
 </div>
-              
-            </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../api_reference_EKF/" class="btn btn-neutral float-right" title="Extended Kalman Filter-Smoother">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
+</div>
+</div>
+</div>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href=".." title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../api_reference_EKF/" title="Extended Kalman Filter-Smoother">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-          
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../api_reference_EKF/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-    <script defer>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span><a href=".." style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../api_reference_EKF/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script>var base_url = '..';</script>
+<script defer="" src="../js/theme_extra.js"></script>
+<script defer="" src="../js/theme.js"></script>
+<script defer="">
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
         };
     </script>
-
 </body>
 </html>

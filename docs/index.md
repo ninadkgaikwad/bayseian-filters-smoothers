@@ -1,4 +1,4 @@
-# bayseian-filters-smoothers
+# bayesian-filters-smoothers
 A unified library for Bayesian filter and smoother algorithms based on the book "Bayesian Filtering and Smoothing" - Simo Sarkka
 
 #### Purpose of the Package
@@ -25,7 +25,7 @@ pip install bayesian-filters-smoothers
 ```
 
 ### Documentation
-You can check out the full documentation (here)[https://ninadkgaikwad.github.io/bayseian-filters-smoothers/]
+You can check out the full documentation [here](https://ninadkgaikwad.github.io/bayseian-filters-smoothers/)
 
 ### Contribution
 Contributions are welcome.
@@ -33,7 +33,7 @@ Notice a bug let us know. Thanks!
 
 
 ### Author
-+ Ninad Kiran Gaikwad
++ Ninad Kiran Gaikwad, PhD Student, Washington State University
 
 
 

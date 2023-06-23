@@ -1,12 +1,22 @@
 site_name: bayesian-filters-smoothers
 site_url: https://github.com/ninadkgaikwad/bayseian-filters-smoothers
 nav:
-  - Home: index.md
+  - Home: index.md  
+  - API: 
+    - Kalman Filter-Smoother: api_reference_KF.md
+    - Extended Kalman Filter-Smoother: api_reference_EKF.md
+    - Unscented Kalman Filter-Smoother: api_reference_UKF.md
+    - Gaussian Filter-Smoother: api_reference_GF.md
+    - Particle Filter-Smoother: api_reference_PF.md
   - User Guide: userguide.md
-  - API: api_reference.md
 
 theme: readthedocs
 
 
 plugins: 
+    - mkdocs-jupyter
     - mkdocstrings:
+        handlers:
+          python:
+            options:
+              do_something: true

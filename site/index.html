@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -32,11 +33,7 @@
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
           <a href="." class="icon icon-home"> bayesian-filters-smoothers
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
+        </a>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
@@ -53,6 +50,8 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#contribution">Contribution</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#author">Author</a>
@@ -60,12 +59,21 @@
     </ul>
                 </li>
               </ul>
+              <p class="caption"><span class="caption-text">API</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="userguide/">User Guide</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference_KF/">Kalman Filter-Smoother</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference_EKF/">Extended Kalman Filter-Smoother</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference_UKF/">Unscented Kalman Filter-Smoother</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference_GF/">Gaussian Filter-Smoother</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference_PF/">Particle Filter-Smoother</a>
+                  </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="api_reference/">API</a>
+                <li class="toctree-l1"><a class="reference internal" href="userguide/">User Guide</a>
                 </li>
               </ul>
       </div>
@@ -91,7 +99,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="bayseian-filters-smoothers">bayseian-filters-smoothers</h1>
+                <h1 id="bayesian-filters-smoothers">bayesian-filters-smoothers</h1>
 <p>A unified library for Bayesian filter and smoother algorithms based on the book "Bayesian Filtering and Smoothing" - Simo Sarkka</p>
 <h4 id="purpose-of-the-package">Purpose of the Package</h4>
 <ul>
@@ -113,18 +121,20 @@
 <h4 id="installation">Installation</h4>
 <pre><code class="language-bash">pip install bayesian-filters-smoothers
 </code></pre>
+<h3 id="documentation">Documentation</h3>
+<p>You can check out the full documentation <a href="https://ninadkgaikwad.github.io/bayseian-filters-smoothers/">here</a></p>
 <h3 id="contribution">Contribution</h3>
 <p>Contributions are welcome.
 Notice a bug let us know. Thanks!</p>
 <h3 id="author">Author</h3>
 <ul>
-<li>Ninad Kiran Gaikwad</li>
+<li>Ninad Kiran Gaikwad, PhD Student, Washington State University</li>
 </ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="userguide/" class="btn btn-neutral float-right" title="User Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="api_reference_KF/" class="btn btn-neutral float-right" title="Kalman Filter-Smoother">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -148,14 +158,13 @@ Notice a bug let us know. Thanks!</p>
     
     
     
-      <span><a href="userguide/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="api_reference_KF/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
     <script>var base_url = '.';</script>
     <script src="js/theme_extra.js" defer></script>
     <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
@@ -167,5 +176,5 @@ Notice a bug let us know. Thanks!</p>
 
 <!--
 MkDocs version : 1.4.3
-Build Date UTC : 2023-06-13 22:06:30.384806+00:00
+Build Date UTC : 2023-06-23 04:16:41.383607+00:00
 -->

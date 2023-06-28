@@ -1,205 +1,249 @@
 <!DOCTYPE html>
-
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" >
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://github.com/ninadkgaikwad/bayseian-filters-smoothers/api_reference_UKF/" rel="canonical"/>
-<link href="../img/favicon.ico" rel="shortcut icon"/>
-<title>Unscented Kalman Filter-Smoother - bayesian-filters-smoothers</title>
-<link href="../css/theme.css" rel="stylesheet"/>
-<link href="../css/theme_extra.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet"/>
-<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
-<script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://github.com/ninadkgaikwad/bayseian-filters-smoothers/api_reference_UKF.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Unscented Kalman Filter-Smoother - bayesian-filters-smoothers</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
         // Current page data
         var mkdocs_page_name = "Unscented Kalman Filter-Smoother";
         var mkdocs_page_input_path = "api_reference_UKF.md";
-        var mkdocs_page_url = "/ninadkgaikwad/bayseian-filters-smoothers/api_reference_UKF/";
+        var mkdocs_page_url = "/ninadkgaikwad/bayseian-filters-smoothers/api_reference_UKF.html";
       </script>
-<script defer="" src="../js/jquery-3.6.0.min.js"></script>
-<!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
+    
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
     <![endif]-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<link href="..\pdf\document.pdf" rel="alternate" title="PDF" type="application/pdf"/></head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
 <body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a class="icon icon-home" href=".."> bayesian-filters-smoothers
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> bayesian-filters-smoothers
         </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference_KF.html">Kalman Filter-Smoother</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference_EKF.html">Extended Kalman Filter-Smoother</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="api_reference_UKF.html">Unscented Kalman Filter-Smoother</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference_GF.html">Gaussian Filter-Smoother</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api_reference_PF.html">Particle Filter-Smoother</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">User Guide</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="userguide.html">Basic Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="KalmanFilter_Example.html">Kalman Filter/Smoother Example</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">bayesian-filters-smoothers</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>API &raquo;</li>
+      <li>Unscented Kalman Filter-Smoother</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
 </div>
-<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="..">Home</a>
-</li>
-</ul>
-<p class="caption"><span class="caption-text">API</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../api_reference_KF/">Kalman Filter-Smoother</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference_EKF/">Extended Kalman Filter-Smoother</a>
-</li>
-<li class="toctree-l1 current"><a class="reference internal current" href="./">Unscented Kalman Filter-Smoother</a>
-<ul class="current">
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference_GF/">Gaussian Filter-Smoother</a>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference_PF/">Particle Filter-Smoother</a>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../userguide/">User Guide</a>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
-<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
-<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href="..">bayesian-filters-smoothers</a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
-<ul class="wy-breadcrumbs">
-<li><a aria-label="Docs" class="icon icon-home" href=".."></a> »</li>
-<li>API »</li>
-<li>Unscented Kalman Filter-Smoother</li>
-<li class="wy-breadcrumbs-aside">
-</li>
-</ul>
-<hr/>
-</div>
-<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
-<div class="section" itemprop="articleBody">
-<h3 id="api-reference">API Reference</h3>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h3 id="api-reference">API Reference</h3>
 <p>This page gives an overview of all the Bayesian Filters and Smoothers implemented in the package</p>
 <ul>
 <li>
-<p><a href="../api_reference_KF/">Kalman Filter/Smoother</a></p>
+<p><a href="api_reference_KF.html">Kalman Filter/Smoother</a></p>
 </li>
 <li>
-<p><a href="../api_reference_EKF/">Extended Kalman Filter/Smoother</a></p>
+<p><a href="api_reference_EKF.html">Extended Kalman Filter/Smoother</a></p>
 </li>
 <li>
-<p><a href="./">Unscented Kalman Filter/Smoother</a></p>
+<p><a href="api_reference_UKF.html">Unscented Kalman Filter/Smoother</a></p>
 </li>
 <li>
-<p><a href="../api_reference_GF/">Gaussian Filter/Smoother</a></p>
+<p><a href="api_reference_GF.html">Gaussian Filter/Smoother</a></p>
 </li>
 <li>
-<p><a href="../api_reference_PF/">Particle Filter/Smoother</a></p>
+<p><a href="api_reference_PF.html">Particle Filter/Smoother</a></p>
 </li>
 </ul>
 <p><strong><em>Unscented_Kalman_Filter_Smoother Class:</em></strong>
 Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a nonlinear system with gaussian process/measurement errors and the gaussian approximation is achieved through the unscented transform</p>
+
+
 <div class="doc doc-object doc-class">
+
+
 <a id="bayesian-filters-smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother"></a>
-<div class="doc doc-contents first">
-<p>Creates an object to handle Unscented Kalman Filtering and Smoothing for Linear Time Invariant (LTI) System</p>
+  <div class="doc doc-contents first">
+
+  
+      <p>Creates an object to handle Unscented Kalman Filtering and Smoothing for Linear Time Invariant (LTI) System</p>
+
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Attributes:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>f</b>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Attributes:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>f</b>
                   (<code>function(state,input) =&gt; numpy.array</code>)
               –
               <div class="doc-md-description">
-<p>Non-linear dynamics function which outputs state vector</p>
-</div>
-</li>
-<li>
-<b>h</b>
+                <p>Non-linear dynamics function which outputs state vector</p>
+              </div>
+            </li>
+            <li>
+              <b>h</b>
                   (<code>function(state) =&gt; numpy.array</code>)
               –
               <div class="doc-md-description">
-<p>Non-linear output function which outputs mesurement vector</p>
-</div>
-</li>
-<li>
-<b>n</b>
+                <p>Non-linear output function which outputs mesurement vector</p>
+              </div>
+            </li>
+            <li>
+              <b>n</b>
                   (<code>integer</code>)
               –
               <div class="doc-md-description">
-<p>Number of states</p>
-</div>
-</li>
-<li>
-<b>alpha</b>
+                <p>Number of states        </p>
+              </div>
+            </li>
+            <li>
+              <b>m</b>
+                  (<code>integer</code>)
+              –
+              <div class="doc-md-description">
+                <p>Number of outputs</p>
+              </div>
+            </li>
+            <li>
+              <b>alpha</b>
                   (<code>float</code>)
               –
               <div class="doc-md-description">
-<p>Parameter for the UKF algorithm</p>
-</div>
-</li>
-<li>
-<b>k</b>
+                <p>Parameter for the UKF algorithm</p>
+              </div>
+            </li>
+            <li>
+              <b>k</b>
                   (<code>float</code>)
               –
               <div class="doc-md-description">
-<p>Parameter for the UKF algorithm </p>
-</div>
-</li>
-<li>
-<b>beta</b>
+                <p>Parameter for the UKF algorithm </p>
+              </div>
+            </li>
+            <li>
+              <b>beta</b>
                   (<code>float</code>)
               –
               <div class="doc-md-description">
-<p>Parameter of the UKF algorithm       </p>
-</div>
-</li>
-<li>
-<b>m_k</b>
+                <p>Parameter of the UKF algorithm       </p>
+              </div>
+            </li>
+            <li>
+              <b>m_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>State mean vector</p>
-</div>
-</li>
-<li>
-<b>P_k</b>
+                <p>State mean vector</p>
+              </div>
+            </li>
+            <li>
+              <b>P_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>State covariance matrix</p>
-</div>
-</li>
-<li>
-<b>Q</b>
+                <p>State covariance matrix</p>
+              </div>
+            </li>
+            <li>
+              <b>Q</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>PRocess error covariance matrix</p>
-</div>
-</li>
-<li>
-<b>R</b>
+                <p>PRocess error covariance matrix</p>
+              </div>
+            </li>
+            <li>
+              <b>R</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>Measurement error covariance matrix</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+                <p>Measurement error covariance matrix</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">503</span>
+
+        <details class="quote">
+          <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span>
+<span class="normal">502</span>
+<span class="normal">503</span>
 <span class="normal">504</span>
 <span class="normal">505</span>
 <span class="normal">506</span>
@@ -667,29 +711,14 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="normal">968</span>
 <span class="normal">969</span>
 <span class="normal">970</span>
-<span class="normal">971</span>
-<span class="normal">972</span>
-<span class="normal">973</span>
-<span class="normal">974</span>
-<span class="normal">975</span>
-<span class="normal">976</span>
-<span class="normal">977</span>
-<span class="normal">978</span>
-<span class="normal">979</span>
-<span class="normal">980</span>
-<span class="normal">981</span>
-<span class="normal">982</span>
-<span class="normal">983</span>
-<span class="normal">984</span>
-<span class="normal">985</span>
-<span class="normal">986</span>
-<span class="normal">987</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Unscented_Kalman_Filter_Smoother</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Creates an object to handle Unscented Kalman Filtering and Smoothing for Linear Time Invariant (LTI) System</span>
+<span class="normal">971</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Unscented_Kalman_Filter_Smoother</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates an object to handle Unscented Kalman Filtering and Smoothing for Linear Time Invariant (LTI) System</span>
 
 <span class="sd">    Attributes:</span>
 <span class="sd">        f (function(state,input) =&gt; numpy.array): Non-linear dynamics function which outputs state vector</span>
 <span class="sd">        h (function(state) =&gt; numpy.array): Non-linear output function which outputs mesurement vector</span>
-<span class="sd">        n (integer): Number of states</span>
+<span class="sd">        n (integer): Number of states        </span>
+<span class="sd">        m (integer): Number of outputs</span>
 <span class="sd">        alpha (float): Parameter for the UKF algorithm</span>
 <span class="sd">        k (float): Parameter for the UKF algorithm </span>
 <span class="sd">        beta (float): Parameter of the UKF algorithm       </span>
@@ -697,10 +726,10 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">        P_k (numpy.array): State covariance matrix</span>
 <span class="sd">        Q (numpy.array): PRocess error covariance matrix</span>
 <span class="sd">        R (numpy.array): Measurement error covariance matrix</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">m_k</span><span class="p">,</span> <span class="n">P_k</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Initializes the instance of class Extended_Kalman_Filter_Smoother</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initializes the instance of class Extended_Kalman_Filter_Smoother</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            f (function(state,input) =&gt; numpy.array): Non-linear dynamics function which outputs state vector</span>
@@ -708,12 +737,13 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">            n (integer): Number of states</span>
 <span class="sd">            m (integer): Number of outputs</span>
 <span class="sd">            alpha (float): Parameter for the UKF algorithm</span>
-<span class="sd">            k (float): Parameter for the UKF algorithm        </span>
+<span class="sd">            k (float): Parameter for the UKF algorithm </span>
+<span class="sd">            beta (float): Parameter of the UKF algorithm      </span>
 <span class="sd">            m_k (numpy.array): State mean vector</span>
 <span class="sd">            P_k (numpy.array): State covariance matrix</span>
-<span class="sd">            Q (numpy.array): PRocess error covariance matrix</span>
+<span class="sd">            Q (numpy.array): Process error covariance matrix</span>
 <span class="sd">            R (numpy.array): Measurement error covariance matrix</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># Initializing the instance</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
@@ -736,39 +766,39 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
         <span class="bp">self</span><span class="o">.</span><span class="n">W_i_c</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Lambda</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">set_f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Sets the system dynamics function for a non-linear time-varying (LTV) system</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the system dynamics function for a non-linear time-varying (LTV) system</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            f (function(state,input) =&gt; numpy.array): Non-linear dynamics function which outputs state vector</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
 
     <span class="k">def</span> <span class="nf">set_h</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Sets the measurement function for a non-linear time-varying (LTV) system</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the measurement function for a non-linear time-varying (LTV) system</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">           h (function(state) =&gt; numpy.array): Non-linear output function which outputs mesurement vector</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">h</span>
 
     <span class="k">def</span> <span class="nf">set_Q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Q</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Sets the Q matrix for the system</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the Q matrix for the system</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            Q (numpy.array): Process error covariance matrix</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span>
 
     <span class="k">def</span> <span class="nf">set_R</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Sets the R matrix for the system</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sets the R matrix for the system</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            R (numpy.array): Measurement error covariance matrix</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">R</span>
 
     <span class="k">def</span> <span class="nf">__UKF_SigmPoints_Generator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Computes Sigma Points for Unscented Kalman Filter</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes Sigma Points for Unscented Kalman Filter</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            m (numpy.array): State mean vector</span>
@@ -776,7 +806,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Sigma_X_Points_list (list of numpy.array): List of Sigma points</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">Sigma_X_Points_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Initialization</span>
 
@@ -819,11 +849,11 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
                 <span class="c1"># Appending Sigma_X_Points_list</span>
                 <span class="n">Sigma_X_Points_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Sigma_X_Point</span><span class="p">)</span>
 
-            <span class="c1"># Return statement</span>
-            <span class="k">return</span> <span class="n">Sigma_X_Points_list</span>
+        <span class="c1"># Return statement</span>
+        <span class="k">return</span> <span class="n">Sigma_X_Points_list</span>
 
     <span class="k">def</span> <span class="nf">__UKF_SigmPoints_DynamicModel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sigma_X_Points_list</span><span class="p">,</span> <span class="n">u_k</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Computes Sigma Points through the dyanmic model for the Unscented Kalman Filter</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes Sigma Points through the dyanmic model for the Unscented Kalman Filter</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            Sigma_X_Points_list (list of numpy.array): List of Sigma points</span>
@@ -831,7 +861,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Sigma_X_Points_Tilde_list  (list of numpy.array): List of Sigma points passed through the dynamic model</span>
-<span class="sd">        """</span>       
+<span class="sd">        &quot;&quot;&quot;</span>       
 
         <span class="n">Sigma_X_Points_Tilde_list</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Initialization</span>
 
@@ -848,14 +878,14 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
         <span class="k">return</span> <span class="n">Sigma_X_Points_Tilde_list</span>
 
     <span class="k">def</span> <span class="nf">__UKF_SigmPoints_MeasurementModel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sigma_X_Points_list</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Computes Sigma Points through the measurement model for the Unscented Kalman Filter</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes Sigma Points through the measurement model for the Unscented Kalman Filter</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            Sigma_X_Points_list (list of numpy.array): List of Sigma points</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Sigma_Y_Points_Tilde_list  (list of numpy.array): List of Sigma points passed through the measurement model</span>
-<span class="sd">        """</span>       
+<span class="sd">        &quot;&quot;&quot;</span>       
 
         <span class="n">Sigma_Y_Points_Tilde_list</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Initialization</span>
 
@@ -872,7 +902,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
         <span class="k">return</span> <span class="n">Sigma_Y_Points_Tilde_list</span>
 
     <span class="k">def</span> <span class="nf">__UKF_Predict_State_MeanCovariance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sigma_X_Points_list</span><span class="p">,</span> <span class="n">Sigma_X_Points_Tilde_list</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Computes predict step state mean, covariance and cross-coavriance for the Unscented Kalman Filter</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes predict step state mean, covariance and cross-coavriance for the Unscented Kalman Filter</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            Sigma_X_Points_list (list of numpy.array): List of Sigma points</span>
@@ -882,7 +912,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">            m_k_ (numpy.array): Predicted state mean vector</span>
 <span class="sd">            P_k_ (numpy.array): Predicted state covariance matrix</span>
 <span class="sd">            D_k (numpy.array): Predicted state cross-covariance</span>
-<span class="sd">        """</span>    
+<span class="sd">        &quot;&quot;&quot;</span>    
 
         <span class="c1"># Computing predicted mean of the state</span>
         <span class="n">m_k_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># Intialization</span>
@@ -944,7 +974,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
         <span class="k">return</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">,</span> <span class="n">D_k</span>  
 
     <span class="k">def</span> <span class="nf">__UKF_Update_StateMeasurement_MeanCovariance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sigma_X_Points_list</span><span class="p">,</span> <span class="n">Sigma_Y_Points_Tilde_list</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Computes predict step state mean and coavriance for the Unscented Kalman Filter</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Computes predict step state mean and coavriance for the Unscented Kalman Filter</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            Sigma_X_Points_list (list of numpy.array): List of Sigma points</span>
@@ -955,7 +985,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">            mu_k (numpy.array): Predicted measurement mean</span>
 <span class="sd">            S_k (numpy.array): Predicted measurement covariance matrix</span>
 <span class="sd">            C_k (numpy.array): Predicted state-measurement covariance matrix</span>
-<span class="sd">        """</span>    
+<span class="sd">        &quot;&quot;&quot;</span>    
 
         <span class="c1"># Computing predicted mean of the measurement</span>
         <span class="n">mu_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># Intialization</span>
@@ -1017,7 +1047,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
         <span class="k">return</span> <span class="n">mu_k</span><span class="p">,</span> <span class="n">S_k</span><span class="p">,</span> <span class="n">C_k</span>
 
     <span class="k">def</span> <span class="nf">Unscented_Kalman_Predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Performs the predict step of the Unscented Kalman Filter</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs the predict step of the Unscented Kalman Filter</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            u_k (numpy.array): Input to the system</span>
@@ -1026,7 +1056,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">            m_k_ (numpy.array): Predicted state mean vector</span>
 <span class="sd">            P_k_ (numpy.array): Predicted state covariance matrix            </span>
 <span class="sd">            D_k (numpy.array): Predicted state cross-covariance</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1">## Forming Sigma Points</span>
         <span class="n">Sigma_X_Points_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__UKF_SigmPoints_Generator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_k</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">P_k</span><span class="p">)</span>
@@ -1041,7 +1071,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
         <span class="k">return</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">,</span> <span class="n">D_k</span>
 
     <span class="k">def</span> <span class="nf">Unscented_Kalman_Update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_k</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Performs the update step of the Unscented Kalman Filter</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs the update step of the Unscented Kalman Filter</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            y_k (numpy.array): New measurement from the system</span>
@@ -1053,7 +1083,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">            S_k (numpy.array): Predicted measurement covariance matrix</span>
 <span class="sd">            C_k (numpy.array): Predicted state-measurement covariance matrix</span>
 <span class="sd">            K_k (numpy.array): Updated Extended Kalman Gain</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1">## Forming Sigma Points</span>
         <span class="n">Sigma_X_Points_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__UKF_SigmPoints_Generator</span><span class="p">(</span><span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">)</span>
@@ -1079,7 +1109,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
         <span class="k">return</span> <span class="n">mu_k</span><span class="p">,</span> <span class="n">S_k</span><span class="p">,</span> <span class="n">C_k</span><span class="p">,</span> <span class="n">K_k</span>
 
     <span class="k">def</span> <span class="nf">Unscented_Kalman_Smoother</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k_list</span><span class="p">,</span> <span class="n">y_k_list</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Performs the smoothening step of the Unscented Kalman Smoother</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Performs the smoothening step of the Unscented Kalman Smoother</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            u_k_list (list of numpy.array): List of inputs to the system</span>
@@ -1089,7 +1119,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">            G_k_list (list of numpy.array): List of Extended Kalman Smoother Gain</span>
 <span class="sd">            m_k_s (list of numpy.array): List of smoothed state vectors</span>
 <span class="sd">            P_k_s (list of numpy.array): List of smoothed state covarivance matrices</span>
-<span class="sd">        """</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="c1"># Computing length of data</span>
         <span class="n">Data_Len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_k_list</span><span class="p">)</span>
@@ -1169,99 +1199,119 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
         <span class="c1"># Return statement</span>
         <span class="k">return</span> <span class="n">G_k_list</span><span class="p">,</span> <span class="n">m_k_s_list</span><span class="p">,</span> <span class="n">P_k_s_list</span>
 </code></pre></div></td></tr></table></div>
-</details>
-<div class="doc doc-children">
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.Unscented_Kalman_Predict">
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.Unscented_Kalman_Predict" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">Unscented_Kalman_Predict</span><span class="p">(</span><span class="n">u_k</span><span class="p">)</span></code>
+
 </h2>
-<div class="doc doc-contents">
-<p>Performs the predict step of the Unscented Kalman Filter</p>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Performs the predict step of the Unscented Kalman Filter</p>
+
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>u_k</b>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>u_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>Input to the system</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+                <p>Input to the system</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Returns:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
 <b>m_k_</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Predicted state mean vector</p>
-</div>
-</li>
-<li>
+              <p>Predicted state mean vector</p>
+            </div>
+          </li>
+          <li>
 <b>P_k_</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Predicted state covariance matrix            </p>
-</div>
-</li>
-<li>
+              <p>Predicted state covariance matrix            </p>
+            </div>
+          </li>
+          <li>
 <b>D_k</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Predicted state cross-covariance</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+              <p>Predicted state cross-covariance</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">836</span>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">820</span>
+<span class="normal">821</span>
+<span class="normal">822</span>
+<span class="normal">823</span>
+<span class="normal">824</span>
+<span class="normal">825</span>
+<span class="normal">826</span>
+<span class="normal">827</span>
+<span class="normal">828</span>
+<span class="normal">829</span>
+<span class="normal">830</span>
+<span class="normal">831</span>
+<span class="normal">832</span>
+<span class="normal">833</span>
+<span class="normal">834</span>
+<span class="normal">835</span>
+<span class="normal">836</span>
 <span class="normal">837</span>
 <span class="normal">838</span>
 <span class="normal">839</span>
 <span class="normal">840</span>
 <span class="normal">841</span>
-<span class="normal">842</span>
-<span class="normal">843</span>
-<span class="normal">844</span>
-<span class="normal">845</span>
-<span class="normal">846</span>
-<span class="normal">847</span>
-<span class="normal">848</span>
-<span class="normal">849</span>
-<span class="normal">850</span>
-<span class="normal">851</span>
-<span class="normal">852</span>
-<span class="normal">853</span>
-<span class="normal">854</span>
-<span class="normal">855</span>
-<span class="normal">856</span>
-<span class="normal">857</span>
-<span class="normal">858</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Unscented_Kalman_Predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Performs the predict step of the Unscented Kalman Filter</span>
+<span class="normal">842</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Unscented_Kalman_Predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs the predict step of the Unscented Kalman Filter</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        u_k (numpy.array): Input to the system</span>
@@ -1270,7 +1320,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">        m_k_ (numpy.array): Predicted state mean vector</span>
 <span class="sd">        P_k_ (numpy.array): Predicted state covariance matrix            </span>
 <span class="sd">        D_k (numpy.array): Predicted state cross-covariance</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1">## Forming Sigma Points</span>
     <span class="n">Sigma_X_Points_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__UKF_SigmPoints_Generator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m_k</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">P_k</span><span class="p">)</span>
@@ -1284,85 +1334,111 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
     <span class="c1"># Return statement</span>
     <span class="k">return</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">,</span> <span class="n">D_k</span>
 </code></pre></div></td></tr></table></div>
-</details>
+      </details>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.Unscented_Kalman_Smoother">
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.Unscented_Kalman_Smoother" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">Unscented_Kalman_Smoother</span><span class="p">(</span><span class="n">u_k_list</span><span class="p">,</span> <span class="n">y_k_list</span><span class="p">)</span></code>
+
 </h2>
-<div class="doc doc-contents">
-<p>Performs the smoothening step of the Unscented Kalman Smoother</p>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Performs the smoothening step of the Unscented Kalman Smoother</p>
+
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>u_k_list</b>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>u_k_list</b>
                   (<code>list of numpy.array</code>)
               –
               <div class="doc-md-description">
-<p>List of inputs to the system</p>
-</div>
-</li>
-<li>
-<b>y_k_list</b>
+                <p>List of inputs to the system</p>
+              </div>
+            </li>
+            <li>
+              <b>y_k_list</b>
                   (<code>list of numpy.array</code>)
               –
               <div class="doc-md-description">
-<p>List of measurements from the system</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+                <p>List of measurements from the system</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Returns:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
 <b>G_k_list</b>(                <code>list of numpy.array</code>
 )            –
             <div class="doc-md-description">
-<p>List of Extended Kalman Smoother Gain</p>
-</div>
-</li>
-<li>
+              <p>List of Extended Kalman Smoother Gain</p>
+            </div>
+          </li>
+          <li>
 <b>m_k_s</b>(                <code>list of numpy.array</code>
 )            –
             <div class="doc-md-description">
-<p>List of smoothed state vectors</p>
-</div>
-</li>
-<li>
+              <p>List of smoothed state vectors</p>
+            </div>
+          </li>
+          <li>
 <b>P_k_s</b>(                <code>list of numpy.array</code>
 )            –
             <div class="doc-md-description">
-<p>List of smoothed state covarivance matrices</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+              <p>List of smoothed state covarivance matrices</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">898</span>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">882</span>
+<span class="normal">883</span>
+<span class="normal">884</span>
+<span class="normal">885</span>
+<span class="normal">886</span>
+<span class="normal">887</span>
+<span class="normal">888</span>
+<span class="normal">889</span>
+<span class="normal">890</span>
+<span class="normal">891</span>
+<span class="normal">892</span>
+<span class="normal">893</span>
+<span class="normal">894</span>
+<span class="normal">895</span>
+<span class="normal">896</span>
+<span class="normal">897</span>
+<span class="normal">898</span>
 <span class="normal">899</span>
 <span class="normal">900</span>
 <span class="normal">901</span>
@@ -1435,24 +1511,8 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="normal">968</span>
 <span class="normal">969</span>
 <span class="normal">970</span>
-<span class="normal">971</span>
-<span class="normal">972</span>
-<span class="normal">973</span>
-<span class="normal">974</span>
-<span class="normal">975</span>
-<span class="normal">976</span>
-<span class="normal">977</span>
-<span class="normal">978</span>
-<span class="normal">979</span>
-<span class="normal">980</span>
-<span class="normal">981</span>
-<span class="normal">982</span>
-<span class="normal">983</span>
-<span class="normal">984</span>
-<span class="normal">985</span>
-<span class="normal">986</span>
-<span class="normal">987</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Unscented_Kalman_Smoother</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k_list</span><span class="p">,</span> <span class="n">y_k_list</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Performs the smoothening step of the Unscented Kalman Smoother</span>
+<span class="normal">971</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Unscented_Kalman_Smoother</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k_list</span><span class="p">,</span> <span class="n">y_k_list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs the smoothening step of the Unscented Kalman Smoother</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        u_k_list (list of numpy.array): List of inputs to the system</span>
@@ -1462,7 +1522,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">        G_k_list (list of numpy.array): List of Extended Kalman Smoother Gain</span>
 <span class="sd">        m_k_s (list of numpy.array): List of smoothed state vectors</span>
 <span class="sd">        P_k_s (list of numpy.array): List of smoothed state covarivance matrices</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Computing length of data</span>
     <span class="n">Data_Len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_k_list</span><span class="p">)</span>
@@ -1542,100 +1602,126 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
     <span class="c1"># Return statement</span>
     <span class="k">return</span> <span class="n">G_k_list</span><span class="p">,</span> <span class="n">m_k_s_list</span><span class="p">,</span> <span class="n">P_k_s_list</span>
 </code></pre></div></td></tr></table></div>
-</details>
+      </details>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.Unscented_Kalman_Update">
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.Unscented_Kalman_Update" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">Unscented_Kalman_Update</span><span class="p">(</span><span class="n">y_k</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">)</span></code>
+
 </h2>
-<div class="doc doc-contents">
-<p>Performs the update step of the Unscented Kalman Filter</p>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Performs the update step of the Unscented Kalman Filter</p>
+
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>y_k</b>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>y_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>New measurement from the system</p>
-</div>
-</li>
-<li>
-<b>m_k_</b>
+                <p>New measurement from the system</p>
+              </div>
+            </li>
+            <li>
+              <b>m_k_</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>Predicted state mean vector</p>
-</div>
-</li>
-<li>
-<b>P_k_</b>
+                <p>Predicted state mean vector</p>
+              </div>
+            </li>
+            <li>
+              <b>P_k_</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>Predicted state covariance matrix</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+                <p>Predicted state covariance matrix</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Returns:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
 <b>mu_k</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Predicted measurement mean</p>
-</div>
-</li>
-<li>
+              <p>Predicted measurement mean</p>
+            </div>
+          </li>
+          <li>
 <b>S_k</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Predicted measurement covariance matrix</p>
-</div>
-</li>
-<li>
+              <p>Predicted measurement covariance matrix</p>
+            </div>
+          </li>
+          <li>
 <b>C_k</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Predicted state-measurement covariance matrix</p>
-</div>
-</li>
-<li>
+              <p>Predicted state-measurement covariance matrix</p>
+            </div>
+          </li>
+          <li>
 <b>K_k</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Updated Extended Kalman Gain</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+              <p>Updated Extended Kalman Gain</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">860</span>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">844</span>
+<span class="normal">845</span>
+<span class="normal">846</span>
+<span class="normal">847</span>
+<span class="normal">848</span>
+<span class="normal">849</span>
+<span class="normal">850</span>
+<span class="normal">851</span>
+<span class="normal">852</span>
+<span class="normal">853</span>
+<span class="normal">854</span>
+<span class="normal">855</span>
+<span class="normal">856</span>
+<span class="normal">857</span>
+<span class="normal">858</span>
+<span class="normal">859</span>
+<span class="normal">860</span>
 <span class="normal">861</span>
 <span class="normal">862</span>
 <span class="normal">863</span>
@@ -1655,24 +1741,8 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="normal">877</span>
 <span class="normal">878</span>
 <span class="normal">879</span>
-<span class="normal">880</span>
-<span class="normal">881</span>
-<span class="normal">882</span>
-<span class="normal">883</span>
-<span class="normal">884</span>
-<span class="normal">885</span>
-<span class="normal">886</span>
-<span class="normal">887</span>
-<span class="normal">888</span>
-<span class="normal">889</span>
-<span class="normal">890</span>
-<span class="normal">891</span>
-<span class="normal">892</span>
-<span class="normal">893</span>
-<span class="normal">894</span>
-<span class="normal">895</span>
-<span class="normal">896</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Unscented_Kalman_Update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_k</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Performs the update step of the Unscented Kalman Filter</span>
+<span class="normal">880</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Unscented_Kalman_Update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_k</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs the update step of the Unscented Kalman Filter</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        y_k (numpy.array): New measurement from the system</span>
@@ -1684,7 +1754,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">        S_k (numpy.array): Predicted measurement covariance matrix</span>
 <span class="sd">        C_k (numpy.array): Predicted state-measurement covariance matrix</span>
 <span class="sd">        K_k (numpy.array): Updated Extended Kalman Gain</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1">## Forming Sigma Points</span>
     <span class="n">Sigma_X_Points_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__UKF_SigmPoints_Generator</span><span class="p">(</span><span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">)</span>
@@ -1709,85 +1779,111 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
     <span class="c1"># Return statement</span>
     <span class="k">return</span> <span class="n">mu_k</span><span class="p">,</span> <span class="n">S_k</span><span class="p">,</span> <span class="n">C_k</span><span class="p">,</span> <span class="n">K_k</span>
 </code></pre></div></td></tr></table></div>
-</details>
+      </details>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.__UKF_Predict_State_MeanCovariance">
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.__UKF_Predict_State_MeanCovariance" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">__UKF_Predict_State_MeanCovariance</span><span class="p">(</span><span class="n">Sigma_X_Points_list</span><span class="p">,</span> <span class="n">Sigma_X_Points_Tilde_list</span><span class="p">)</span></code>
+
 </h2>
-<div class="doc doc-contents">
-<p>Computes predict step state mean, covariance and cross-coavriance for the Unscented Kalman Filter</p>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Computes predict step state mean, covariance and cross-coavriance for the Unscented Kalman Filter</p>
+
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>Sigma_X_Points_list</b>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>Sigma_X_Points_list</b>
                   (<code>list of numpy.array</code>)
               –
               <div class="doc-md-description">
-<p>List of Sigma points</p>
-</div>
-</li>
-<li>
-<b>Sigma_X_Points_Tilde_list</b>
+                <p>List of Sigma points</p>
+              </div>
+            </li>
+            <li>
+              <b>Sigma_X_Points_Tilde_list</b>
                   (<code> (list of numpy.array</code>)
               –
               <div class="doc-md-description">
-<p>List of Sigma points passed through the dynamic model</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+                <p>List of Sigma points passed through the dynamic model</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Returns:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
 <b>m_k_</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Predicted state mean vector</p>
-</div>
-</li>
-<li>
+              <p>Predicted state mean vector</p>
+            </div>
+          </li>
+          <li>
 <b>P_k_</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Predicted state covariance matrix</p>
-</div>
-</li>
-<li>
+              <p>Predicted state covariance matrix</p>
+            </div>
+          </li>
+          <li>
 <b>D_k</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Predicted state cross-covariance</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+              <p>Predicted state cross-covariance</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">691</span>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">675</span>
+<span class="normal">676</span>
+<span class="normal">677</span>
+<span class="normal">678</span>
+<span class="normal">679</span>
+<span class="normal">680</span>
+<span class="normal">681</span>
+<span class="normal">682</span>
+<span class="normal">683</span>
+<span class="normal">684</span>
+<span class="normal">685</span>
+<span class="normal">686</span>
+<span class="normal">687</span>
+<span class="normal">688</span>
+<span class="normal">689</span>
+<span class="normal">690</span>
+<span class="normal">691</span>
 <span class="normal">692</span>
 <span class="normal">693</span>
 <span class="normal">694</span>
@@ -1841,24 +1937,8 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="normal">742</span>
 <span class="normal">743</span>
 <span class="normal">744</span>
-<span class="normal">745</span>
-<span class="normal">746</span>
-<span class="normal">747</span>
-<span class="normal">748</span>
-<span class="normal">749</span>
-<span class="normal">750</span>
-<span class="normal">751</span>
-<span class="normal">752</span>
-<span class="normal">753</span>
-<span class="normal">754</span>
-<span class="normal">755</span>
-<span class="normal">756</span>
-<span class="normal">757</span>
-<span class="normal">758</span>
-<span class="normal">759</span>
-<span class="normal">760</span>
-<span class="normal">761</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__UKF_Predict_State_MeanCovariance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sigma_X_Points_list</span><span class="p">,</span> <span class="n">Sigma_X_Points_Tilde_list</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Computes predict step state mean, covariance and cross-coavriance for the Unscented Kalman Filter</span>
+<span class="normal">745</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__UKF_Predict_State_MeanCovariance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sigma_X_Points_list</span><span class="p">,</span> <span class="n">Sigma_X_Points_Tilde_list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes predict step state mean, covariance and cross-coavriance for the Unscented Kalman Filter</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        Sigma_X_Points_list (list of numpy.array): List of Sigma points</span>
@@ -1868,7 +1948,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">        m_k_ (numpy.array): Predicted state mean vector</span>
 <span class="sd">        P_k_ (numpy.array): Predicted state covariance matrix</span>
 <span class="sd">        D_k (numpy.array): Predicted state cross-covariance</span>
-<span class="sd">    """</span>    
+<span class="sd">    &quot;&quot;&quot;</span>    
 
     <span class="c1"># Computing predicted mean of the state</span>
     <span class="n">m_k_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># Intialization</span>
@@ -1929,95 +2009,105 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
     <span class="c1"># Return statement</span>
     <span class="k">return</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">,</span> <span class="n">D_k</span>  
 </code></pre></div></td></tr></table></div>
-</details>
+      </details>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.__UKF_SigmPoints_DynamicModel">
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.__UKF_SigmPoints_DynamicModel" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">__UKF_SigmPoints_DynamicModel</span><span class="p">(</span><span class="n">Sigma_X_Points_list</span><span class="p">,</span> <span class="n">u_k</span><span class="p">)</span></code>
+
 </h2>
-<div class="doc doc-contents">
-<p>Computes Sigma Points through the dyanmic model for the Unscented Kalman Filter</p>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Computes Sigma Points through the dyanmic model for the Unscented Kalman Filter</p>
+
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>Sigma_X_Points_list</b>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>Sigma_X_Points_list</b>
                   (<code>list of numpy.array</code>)
               –
               <div class="doc-md-description">
-<p>List of Sigma points</p>
-</div>
-</li>
-<li>
-<b>u_k</b>
+                <p>List of Sigma points</p>
+              </div>
+            </li>
+            <li>
+              <b>u_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>Input to the system</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+                <p>Input to the system</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Returns:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
 <b>Sigma_X_Points_Tilde_list</b>(                <code>list of numpy.array</code>
 )            –
             <div class="doc-md-description">
-<p>List of Sigma points passed through the dynamic model</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+              <p>List of Sigma points passed through the dynamic model</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">642</span>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span>
+<span class="normal">633</span>
+<span class="normal">634</span>
+<span class="normal">635</span>
+<span class="normal">636</span>
+<span class="normal">637</span>
+<span class="normal">638</span>
+<span class="normal">639</span>
+<span class="normal">640</span>
+<span class="normal">641</span>
+<span class="normal">642</span>
 <span class="normal">643</span>
 <span class="normal">644</span>
 <span class="normal">645</span>
 <span class="normal">646</span>
 <span class="normal">647</span>
 <span class="normal">648</span>
-<span class="normal">649</span>
-<span class="normal">650</span>
-<span class="normal">651</span>
-<span class="normal">652</span>
-<span class="normal">653</span>
-<span class="normal">654</span>
-<span class="normal">655</span>
-<span class="normal">656</span>
-<span class="normal">657</span>
-<span class="normal">658</span>
-<span class="normal">659</span>
-<span class="normal">660</span>
-<span class="normal">661</span>
-<span class="normal">662</span>
-<span class="normal">663</span>
-<span class="normal">664</span>
-<span class="normal">665</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__UKF_SigmPoints_DynamicModel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sigma_X_Points_list</span><span class="p">,</span> <span class="n">u_k</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Computes Sigma Points through the dyanmic model for the Unscented Kalman Filter</span>
+<span class="normal">649</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__UKF_SigmPoints_DynamicModel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sigma_X_Points_list</span><span class="p">,</span> <span class="n">u_k</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes Sigma Points through the dyanmic model for the Unscented Kalman Filter</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        Sigma_X_Points_list (list of numpy.array): List of Sigma points</span>
@@ -2025,7 +2115,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Sigma_X_Points_Tilde_list  (list of numpy.array): List of Sigma points passed through the dynamic model</span>
-<span class="sd">    """</span>       
+<span class="sd">    &quot;&quot;&quot;</span>       
 
     <span class="n">Sigma_X_Points_Tilde_list</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Initialization</span>
 
@@ -2041,71 +2131,97 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
     <span class="c1"># Return statement</span>
     <span class="k">return</span> <span class="n">Sigma_X_Points_Tilde_list</span>
 </code></pre></div></td></tr></table></div>
-</details>
+      </details>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.__UKF_SigmPoints_Generator">
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.__UKF_SigmPoints_Generator" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">__UKF_SigmPoints_Generator</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span></code>
+
 </h2>
-<div class="doc doc-contents">
-<p>Computes Sigma Points for Unscented Kalman Filter</p>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Computes Sigma Points for Unscented Kalman Filter</p>
+
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>m</b>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>m</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>State mean vector</p>
-</div>
-</li>
-<li>
-<b>P</b>
+                <p>State mean vector</p>
+              </div>
+            </li>
+            <li>
+              <b>P</b>
                   (<code><span title="numpy">np</span>.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>State covariance matrix</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+                <p>State covariance matrix</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Returns:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
 <b>Sigma_X_Points_list</b>(                <code>list of numpy.array</code>
 )            –
             <div class="doc-md-description">
-<p>List of Sigma points</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+              <p>List of Sigma points</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">587</span>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">571</span>
+<span class="normal">572</span>
+<span class="normal">573</span>
+<span class="normal">574</span>
+<span class="normal">575</span>
+<span class="normal">576</span>
+<span class="normal">577</span>
+<span class="normal">578</span>
+<span class="normal">579</span>
+<span class="normal">580</span>
+<span class="normal">581</span>
+<span class="normal">582</span>
+<span class="normal">583</span>
+<span class="normal">584</span>
+<span class="normal">585</span>
+<span class="normal">586</span>
+<span class="normal">587</span>
 <span class="normal">588</span>
 <span class="normal">589</span>
 <span class="normal">590</span>
@@ -2142,24 +2258,8 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="normal">621</span>
 <span class="normal">622</span>
 <span class="normal">623</span>
-<span class="normal">624</span>
-<span class="normal">625</span>
-<span class="normal">626</span>
-<span class="normal">627</span>
-<span class="normal">628</span>
-<span class="normal">629</span>
-<span class="normal">630</span>
-<span class="normal">631</span>
-<span class="normal">632</span>
-<span class="normal">633</span>
-<span class="normal">634</span>
-<span class="normal">635</span>
-<span class="normal">636</span>
-<span class="normal">637</span>
-<span class="normal">638</span>
-<span class="normal">639</span>
-<span class="normal">640</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__UKF_SigmPoints_Generator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Computes Sigma Points for Unscented Kalman Filter</span>
+<span class="normal">624</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__UKF_SigmPoints_Generator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes Sigma Points for Unscented Kalman Filter</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        m (numpy.array): State mean vector</span>
@@ -2167,7 +2267,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Sigma_X_Points_list (list of numpy.array): List of Sigma points</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">Sigma_X_Points_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Initialization</span>
 
@@ -2210,96 +2310,106 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
             <span class="c1"># Appending Sigma_X_Points_list</span>
             <span class="n">Sigma_X_Points_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Sigma_X_Point</span><span class="p">)</span>
 
-        <span class="c1"># Return statement</span>
-        <span class="k">return</span> <span class="n">Sigma_X_Points_list</span>
+    <span class="c1"># Return statement</span>
+    <span class="k">return</span> <span class="n">Sigma_X_Points_list</span>
 </code></pre></div></td></tr></table></div>
-</details>
+      </details>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.__UKF_SigmPoints_MeasurementModel">
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.__UKF_SigmPoints_MeasurementModel" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">__UKF_SigmPoints_MeasurementModel</span><span class="p">(</span><span class="n">Sigma_X_Points_list</span><span class="p">)</span></code>
+
 </h2>
-<div class="doc doc-contents">
-<p>Computes Sigma Points through the measurement model for the Unscented Kalman Filter</p>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Computes Sigma Points through the measurement model for the Unscented Kalman Filter</p>
+
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>Sigma_X_Points_list</b>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>Sigma_X_Points_list</b>
                   (<code>list of numpy.array</code>)
               –
               <div class="doc-md-description">
-<p>List of Sigma points</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+                <p>List of Sigma points</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Returns:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
 <b>Sigma_Y_Points_Tilde_list</b>(                <code>list of numpy.array</code>
 )            –
             <div class="doc-md-description">
-<p>List of Sigma points passed through the measurement model</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+              <p>List of Sigma points passed through the measurement model</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">667</span>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">651</span>
+<span class="normal">652</span>
+<span class="normal">653</span>
+<span class="normal">654</span>
+<span class="normal">655</span>
+<span class="normal">656</span>
+<span class="normal">657</span>
+<span class="normal">658</span>
+<span class="normal">659</span>
+<span class="normal">660</span>
+<span class="normal">661</span>
+<span class="normal">662</span>
+<span class="normal">663</span>
+<span class="normal">664</span>
+<span class="normal">665</span>
+<span class="normal">666</span>
+<span class="normal">667</span>
 <span class="normal">668</span>
 <span class="normal">669</span>
 <span class="normal">670</span>
 <span class="normal">671</span>
 <span class="normal">672</span>
-<span class="normal">673</span>
-<span class="normal">674</span>
-<span class="normal">675</span>
-<span class="normal">676</span>
-<span class="normal">677</span>
-<span class="normal">678</span>
-<span class="normal">679</span>
-<span class="normal">680</span>
-<span class="normal">681</span>
-<span class="normal">682</span>
-<span class="normal">683</span>
-<span class="normal">684</span>
-<span class="normal">685</span>
-<span class="normal">686</span>
-<span class="normal">687</span>
-<span class="normal">688</span>
-<span class="normal">689</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__UKF_SigmPoints_MeasurementModel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sigma_X_Points_list</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Computes Sigma Points through the measurement model for the Unscented Kalman Filter</span>
+<span class="normal">673</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__UKF_SigmPoints_MeasurementModel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sigma_X_Points_list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes Sigma Points through the measurement model for the Unscented Kalman Filter</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        Sigma_X_Points_list (list of numpy.array): List of Sigma points</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Sigma_Y_Points_Tilde_list  (list of numpy.array): List of Sigma points passed through the measurement model</span>
-<span class="sd">    """</span>       
+<span class="sd">    &quot;&quot;&quot;</span>       
 
     <span class="n">Sigma_Y_Points_Tilde_list</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Initialization</span>
 
@@ -2315,93 +2425,119 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
     <span class="c1"># Return statement</span>
     <span class="k">return</span> <span class="n">Sigma_Y_Points_Tilde_list</span>
 </code></pre></div></td></tr></table></div>
-</details>
+      </details>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.__UKF_Update_StateMeasurement_MeanCovariance">
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.__UKF_Update_StateMeasurement_MeanCovariance" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">__UKF_Update_StateMeasurement_MeanCovariance</span><span class="p">(</span><span class="n">Sigma_X_Points_list</span><span class="p">,</span> <span class="n">Sigma_Y_Points_Tilde_list</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">)</span></code>
+
 </h2>
-<div class="doc doc-contents">
-<p>Computes predict step state mean and coavriance for the Unscented Kalman Filter</p>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Computes predict step state mean and coavriance for the Unscented Kalman Filter</p>
+
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>Sigma_X_Points_list</b>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>Sigma_X_Points_list</b>
                   (<code>list of numpy.array</code>)
               –
               <div class="doc-md-description">
-<p>List of Sigma points</p>
-</div>
-</li>
-<li>
-<b>Sigma_Y_Points_Tilde_list</b>
+                <p>List of Sigma points</p>
+              </div>
+            </li>
+            <li>
+              <b>Sigma_Y_Points_Tilde_list</b>
                   (<code> (list of numpy.array</code>)
               –
               <div class="doc-md-description">
-<p>List of Sigma points passed through the measurement model</p>
-</div>
-</li>
-<li>
-<b>m_k_</b>
+                <p>List of Sigma points passed through the measurement model</p>
+              </div>
+            </li>
+            <li>
+              <b>m_k_</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>Predicted state mean vector</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+                <p>Predicted state mean vector</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Returns:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+    <th class="field-name">Returns:</th>
+    <td class="field-body">
+      <ul class="first simple">
+          <li>
 <b>mu_k</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Predicted measurement mean</p>
-</div>
-</li>
-<li>
+              <p>Predicted measurement mean</p>
+            </div>
+          </li>
+          <li>
 <b>S_k</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Predicted measurement covariance matrix</p>
-</div>
-</li>
-<li>
+              <p>Predicted measurement covariance matrix</p>
+            </div>
+          </li>
+          <li>
 <b>C_k</b>(                <code>numpy.<span title="numpy.array">array</span></code>
 )            –
             <div class="doc-md-description">
-<p>Predicted state-measurement covariance matrix</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+              <p>Predicted state-measurement covariance matrix</p>
+            </div>
+          </li>
+      </ul>
+    </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">763</span>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">747</span>
+<span class="normal">748</span>
+<span class="normal">749</span>
+<span class="normal">750</span>
+<span class="normal">751</span>
+<span class="normal">752</span>
+<span class="normal">753</span>
+<span class="normal">754</span>
+<span class="normal">755</span>
+<span class="normal">756</span>
+<span class="normal">757</span>
+<span class="normal">758</span>
+<span class="normal">759</span>
+<span class="normal">760</span>
+<span class="normal">761</span>
+<span class="normal">762</span>
+<span class="normal">763</span>
 <span class="normal">764</span>
 <span class="normal">765</span>
 <span class="normal">766</span>
@@ -2456,24 +2592,8 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="normal">815</span>
 <span class="normal">816</span>
 <span class="normal">817</span>
-<span class="normal">818</span>
-<span class="normal">819</span>
-<span class="normal">820</span>
-<span class="normal">821</span>
-<span class="normal">822</span>
-<span class="normal">823</span>
-<span class="normal">824</span>
-<span class="normal">825</span>
-<span class="normal">826</span>
-<span class="normal">827</span>
-<span class="normal">828</span>
-<span class="normal">829</span>
-<span class="normal">830</span>
-<span class="normal">831</span>
-<span class="normal">832</span>
-<span class="normal">833</span>
-<span class="normal">834</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__UKF_Update_StateMeasurement_MeanCovariance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sigma_X_Points_list</span><span class="p">,</span> <span class="n">Sigma_Y_Points_Tilde_list</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Computes predict step state mean and coavriance for the Unscented Kalman Filter</span>
+<span class="normal">818</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">__UKF_Update_StateMeasurement_MeanCovariance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Sigma_X_Points_list</span><span class="p">,</span> <span class="n">Sigma_Y_Points_Tilde_list</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes predict step state mean and coavriance for the Unscented Kalman Filter</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        Sigma_X_Points_list (list of numpy.array): List of Sigma points</span>
@@ -2484,7 +2604,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">        mu_k (numpy.array): Predicted measurement mean</span>
 <span class="sd">        S_k (numpy.array): Predicted measurement covariance matrix</span>
 <span class="sd">        C_k (numpy.array): Predicted state-measurement covariance matrix</span>
-<span class="sd">    """</span>    
+<span class="sd">    &quot;&quot;&quot;</span>    
 
     <span class="c1"># Computing predicted mean of the measurement</span>
     <span class="n">mu_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># Intialization</span>
@@ -2545,113 +2665,148 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
     <span class="c1"># Return statement</span>
     <span class="k">return</span> <span class="n">mu_k</span><span class="p">,</span> <span class="n">S_k</span><span class="p">,</span> <span class="n">C_k</span>
 </code></pre></div></td></tr></table></div>
-</details>
+      </details>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.__init__">
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.__init__" class="doc doc-heading">
 <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">m_k</span><span class="p">,</span> <span class="n">P_k</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span></code>
+
 </h2>
-<div class="doc doc-contents">
-<p>Initializes the instance of class Extended_Kalman_Filter_Smoother</p>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initializes the instance of class Extended_Kalman_Filter_Smoother</p>
+
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>f</b>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>f</b>
                   (<code>function(state,input) =&gt; numpy.array</code>)
               –
               <div class="doc-md-description">
-<p>Non-linear dynamics function which outputs state vector</p>
-</div>
-</li>
-<li>
-<b>h</b>
+                <p>Non-linear dynamics function which outputs state vector</p>
+              </div>
+            </li>
+            <li>
+              <b>h</b>
                   (<code>function(state) =&gt; numpy.array</code>)
               –
               <div class="doc-md-description">
-<p>Non-linear output function which outputs mesurement vector</p>
-</div>
-</li>
-<li>
-<b>n</b>
+                <p>Non-linear output function which outputs mesurement vector</p>
+              </div>
+            </li>
+            <li>
+              <b>n</b>
                   (<code>integer</code>)
               –
               <div class="doc-md-description">
-<p>Number of states</p>
-</div>
-</li>
-<li>
-<b>m</b>
+                <p>Number of states</p>
+              </div>
+            </li>
+            <li>
+              <b>m</b>
                   (<code>integer</code>)
               –
               <div class="doc-md-description">
-<p>Number of outputs</p>
-</div>
-</li>
-<li>
-<b>alpha</b>
+                <p>Number of outputs</p>
+              </div>
+            </li>
+            <li>
+              <b>alpha</b>
                   (<code>float</code>)
               –
               <div class="doc-md-description">
-<p>Parameter for the UKF algorithm</p>
-</div>
-</li>
-<li>
-<b>k</b>
+                <p>Parameter for the UKF algorithm</p>
+              </div>
+            </li>
+            <li>
+              <b>k</b>
                   (<code>float</code>)
               –
               <div class="doc-md-description">
-<p>Parameter for the UKF algorithm        </p>
-</div>
-</li>
-<li>
-<b>m_k</b>
+                <p>Parameter for the UKF algorithm </p>
+              </div>
+            </li>
+            <li>
+              <b>beta</b>
+                  (<code>float</code>)
+              –
+              <div class="doc-md-description">
+                <p>Parameter of the UKF algorithm      </p>
+              </div>
+            </li>
+            <li>
+              <b>m_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>State mean vector</p>
-</div>
-</li>
-<li>
-<b>P_k</b>
+                <p>State mean vector</p>
+              </div>
+            </li>
+            <li>
+              <b>P_k</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>State covariance matrix</p>
-</div>
-</li>
-<li>
-<b>Q</b>
+                <p>State covariance matrix</p>
+              </div>
+            </li>
+            <li>
+              <b>Q</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>PRocess error covariance matrix</p>
-</div>
-</li>
-<li>
-<b>R</b>
+                <p>Process error covariance matrix</p>
+              </div>
+            </li>
+            <li>
+              <b>R</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>Measurement error covariance matrix</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+                <p>Measurement error covariance matrix</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">519</span>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">502</span>
+<span class="normal">503</span>
+<span class="normal">504</span>
+<span class="normal">505</span>
+<span class="normal">506</span>
+<span class="normal">507</span>
+<span class="normal">508</span>
+<span class="normal">509</span>
+<span class="normal">510</span>
+<span class="normal">511</span>
+<span class="normal">512</span>
+<span class="normal">513</span>
+<span class="normal">514</span>
+<span class="normal">515</span>
+<span class="normal">516</span>
+<span class="normal">517</span>
+<span class="normal">518</span>
+<span class="normal">519</span>
 <span class="normal">520</span>
 <span class="normal">521</span>
 <span class="normal">522</span>
@@ -2669,24 +2824,8 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="normal">534</span>
 <span class="normal">535</span>
 <span class="normal">536</span>
-<span class="normal">537</span>
-<span class="normal">538</span>
-<span class="normal">539</span>
-<span class="normal">540</span>
-<span class="normal">541</span>
-<span class="normal">542</span>
-<span class="normal">543</span>
-<span class="normal">544</span>
-<span class="normal">545</span>
-<span class="normal">546</span>
-<span class="normal">547</span>
-<span class="normal">548</span>
-<span class="normal">549</span>
-<span class="normal">550</span>
-<span class="normal">551</span>
-<span class="normal">552</span>
-<span class="normal">553</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">m_k</span><span class="p">,</span> <span class="n">P_k</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Initializes the instance of class Extended_Kalman_Filter_Smoother</span>
+<span class="normal">537</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">m_k</span><span class="p">,</span> <span class="n">P_k</span><span class="p">,</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Initializes the instance of class Extended_Kalman_Filter_Smoother</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        f (function(state,input) =&gt; numpy.array): Non-linear dynamics function which outputs state vector</span>
@@ -2694,12 +2833,13 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="sd">        n (integer): Number of states</span>
 <span class="sd">        m (integer): Number of outputs</span>
 <span class="sd">        alpha (float): Parameter for the UKF algorithm</span>
-<span class="sd">        k (float): Parameter for the UKF algorithm        </span>
+<span class="sd">        k (float): Parameter for the UKF algorithm </span>
+<span class="sd">        beta (float): Parameter of the UKF algorithm      </span>
 <span class="sd">        m_k (numpy.array): State mean vector</span>
 <span class="sd">        P_k (numpy.array): State covariance matrix</span>
-<span class="sd">        Q (numpy.array): PRocess error covariance matrix</span>
+<span class="sd">        Q (numpy.array): Process error covariance matrix</span>
 <span class="sd">        R (numpy.array): Measurement error covariance matrix</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Initializing the instance</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
@@ -2721,234 +2861,293 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
     <span class="bp">self</span><span class="o">.</span><span class="n">W_0_c</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Lambda</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Lambda</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">beta</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">W_i_c</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">Lambda</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
-</details>
+      </details>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.set_Q">
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.set_Q" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">set_Q</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span></code>
+
 </h2>
-<div class="doc doc-contents">
-<p>Sets the Q matrix for the system</p>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Sets the Q matrix for the system</p>
+
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>Q</b>
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>Q</b>
                   (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>Process error covariance matrix</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+                <p>Process error covariance matrix</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">571</span>
-<span class="normal">572</span>
-<span class="normal">573</span>
-<span class="normal">574</span>
-<span class="normal">575</span>
-<span class="normal">576</span>
-<span class="normal">577</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_Q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Q</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Sets the Q matrix for the system</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        Q (numpy.array): Process error covariance matrix</span>
-<span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.set_R">
-<code class="highlight language-python"><span class="n">set_R</span><span class="p">(</span><span class="n">R</span><span class="p">)</span></code>
-</h2>
-<div class="doc doc-contents">
-<p>Sets the R matrix for the system</p>
-<table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>R</b>
-                  (<code>numpy.<span title="numpy.array">array</span></code>)
-              –
-              <div class="doc-md-description">
-<p>Measurement error covariance matrix</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">579</span>
-<span class="normal">580</span>
-<span class="normal">581</span>
-<span class="normal">582</span>
-<span class="normal">583</span>
-<span class="normal">584</span>
-<span class="normal">585</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_R</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Sets the R matrix for the system</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        R (numpy.array): Measurement error covariance matrix</span>
-<span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">R</span>
-</code></pre></div></td></tr></table></div>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.set_f">
-<code class="highlight language-python"><span class="n">set_f</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></code>
-</h2>
-<div class="doc doc-contents">
-<p>Sets the system dynamics function for a non-linear time-varying (LTV) system</p>
-<table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>f</b>
-                  (<code>function(state,input) =&gt; numpy.array</code>)
-              –
-              <div class="doc-md-description">
-<p>Non-linear dynamics function which outputs state vector</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">555</span>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">555</span>
 <span class="normal">556</span>
 <span class="normal">557</span>
 <span class="normal">558</span>
 <span class="normal">559</span>
 <span class="normal">560</span>
-<span class="normal">561</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Sets the system dynamics function for a non-linear time-varying (LTV) system</span>
+<span class="normal">561</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_Q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Q</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the Q matrix for the system</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        f (function(state,input) =&gt; numpy.array): Non-linear dynamics function which outputs state vector</span>
-<span class="sd">    """</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
+<span class="sd">        Q (numpy.array): Process error covariance matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Q</span> <span class="o">=</span> <span class="n">Q</span>
 </code></pre></div></td></tr></table></div>
-</details>
+      </details>
+  </div>
+
 </div>
-</div>
+
 <div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.set_h">
-<code class="highlight language-python"><span class="n">set_h</span><span class="p">(</span><span class="n">h</span><span class="p">)</span></code>
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.set_R" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">set_R</span><span class="p">(</span><span class="n">R</span><span class="p">)</span></code>
+
 </h2>
-<div class="doc doc-contents">
-<p>Sets the measurement function for a non-linear time-varying (LTV) system</p>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Sets the R matrix for the system</p>
+
 <table class="field-list">
-<colgroup>
-<col class="field-name"/>
-<col class="field-body"/>
-</colgroup>
-<tbody valign="top">
-<tr class="field">
-<th class="field-name">Parameters:</th>
-<td class="field-body">
-<ul class="first simple">
-<li>
-<b>h</b>
-                  (<code>function(state) =&gt; numpy.array</code>)
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>R</b>
+                  (<code>numpy.<span title="numpy.array">array</span></code>)
               –
               <div class="doc-md-description">
-<p>Non-linear output function which outputs mesurement vector</p>
-</div>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
+                <p>Measurement error covariance matrix</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
 </table>
-<details class="quote">
-<summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">563</span>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">563</span>
 <span class="normal">564</span>
 <span class="normal">565</span>
 <span class="normal">566</span>
 <span class="normal">567</span>
 <span class="normal">568</span>
-<span class="normal">569</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_h</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""Sets the measurement function for a non-linear time-varying (LTV) system</span>
+<span class="normal">569</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_R</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the R matrix for the system</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        R (numpy.array): Measurement error covariance matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">R</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.set_f" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">set_f</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Sets the system dynamics function for a non-linear time-varying (LTV) system</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>f</b>
+                  (<code>function(state,input) =&gt; numpy.array</code>)
+              –
+              <div class="doc-md-description">
+                <p>Non-linear dynamics function which outputs state vector</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">539</span>
+<span class="normal">540</span>
+<span class="normal">541</span>
+<span class="normal">542</span>
+<span class="normal">543</span>
+<span class="normal">544</span>
+<span class="normal">545</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the system dynamics function for a non-linear time-varying (LTV) system</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        f (function(state,input) =&gt; numpy.array): Non-linear dynamics function which outputs state vector</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">f</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="bayesian-filters-smoothers.bayesian_filters_smoothers.bayesian_filters_smoothers.Unscented_Kalman_Filter_Smoother.set_h" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">set_h</span><span class="p">(</span><span class="n">h</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Sets the measurement function for a non-linear time-varying (LTV) system</p>
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b>h</b>
+                  (<code>function(state) =&gt; numpy.array</code>)
+              –
+              <div class="doc-md-description">
+                <p>Non-linear output function which outputs mesurement vector</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <details class="quote">
+        <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">547</span>
+<span class="normal">548</span>
+<span class="normal">549</span>
+<span class="normal">550</span>
+<span class="normal">551</span>
+<span class="normal">552</span>
+<span class="normal">553</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_h</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sets the measurement function for a non-linear time-varying (LTV) system</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">       h (function(state) =&gt; numpy.array): Non-linear output function which outputs mesurement vector</span>
-<span class="sd">    """</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">h</span>
 </code></pre></div></td></tr></table></div>
-</details>
+      </details>
+  </div>
+
 </div>
+
+
+
+  </div>
+
+  </div>
+
 </div>
-</div>
-</div>
-</div>
-</div>
-</div><footer>
-<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-left" href="../api_reference_EKF/" title="Extended Kalman Filter-Smoother"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-<a class="btn btn-neutral float-right" href="../api_reference_GF/" title="Gaussian Filter-Smoother">Next <span class="icon icon-circle-arrow-right"></span></a>
-</div>
-<hr/>
-<div role="contentinfo">
-<!-- Copyright etc -->
-</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="api_reference_EKF.html" class="btn btn-neutral float-left" title="Extended Kalman Filter-Smoother"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="api_reference_GF.html" class="btn btn-neutral float-right" title="Gaussian Filter-Smoother">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="api_reference_EKF.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="api_reference_GF.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
-</div>
-</section>
-</div>
-<div aria-label="Versions" class="rst-versions" role="note">
-<span class="rst-current-version" data-toggle="rst-current-version">
-<span><a href="../api_reference_EKF/" style="color: #fcfcfc">« Previous</a></span>
-<span><a href="../api_reference_GF/" style="color: #fcfcfc">Next »</a></span>
-</span>
-</div>
-<script>var base_url = '..';</script>
-<script defer="" src="../js/theme_extra.js"></script>
-<script defer="" src="../js/theme.js"></script>
-<script defer="">
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
         };
     </script>
+
 </body>
 </html>

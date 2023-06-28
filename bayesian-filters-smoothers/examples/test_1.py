@@ -14,3 +14,7 @@ a=bfs.addnum(10,10)
 
 print(a)
 
+a=bfs.subnum(10,10)
+
+print(a)
+

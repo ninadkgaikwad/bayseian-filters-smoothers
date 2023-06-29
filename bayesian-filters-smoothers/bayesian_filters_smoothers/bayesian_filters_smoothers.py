@@ -984,10 +984,10 @@ class Gaussian_Filter_Smoother:
         P_k (numpy.array): State covariance matrix
         Q (numpy.array): Process error covariance matrix
         R (numpy.array): Measurement error covariance matrix
-        p (integer/optional): Order of Hermite polynomial; default is 0, should be supplied for Gaussian-Hermite type filter/smoother
+        p (integer/optional): Order of Hermite polynomial; default is 2, should be supplied for Gaussian-Hermite type filter/smoother
     """
 
-    def __init__(self, GF_Type, f, h, n, m, m_k, P_k, Q, R, p=0):
+    def __init__(self, GF_Type, f, h, n, m, m_k, P_k, Q, R, p=2):
         """Initializes the instance of class Extended_Kalman_Filter_Smoother
 
         Args:
@@ -1000,7 +1000,7 @@ class Gaussian_Filter_Smoother:
             P_k (numpy.array): State covariance matrix
             Q (numpy.array): PRocess error covariance matrix
             R (numpy.array): Measurement error covariance matrix
-            p (integer/optional): Order of Hermite polynomial; default is 0, should be supplied for Gaussian-Hermite type filter/smoother 
+            p (integer/optional): Order of Hermite polynomial; default is 2, should be supplied for Gaussian-Hermite type filter/smoother and should be >=2 
         """
 
         # Initializing the instance
@@ -1014,7 +1014,32 @@ class Gaussian_Filter_Smoother:
         self.Q = Q
         self.R = R
         self.p = p
+
+        # Computing Zeta Points and Weights based on Gaussian Filter Type
+        if (GF_Type == 1):  # Gaussian-Hermite
+
+            # Computing roots of p^{th} order Hermite-Polynomial
+            Hermite_RootPoints_list, Hermite_p_1 = self.__GF_Hermite_Root_Generator()
+
+            # Computing Zeta Points as cartesian product of the roots of Hermite-Polynomial
+            ZetaPoints_list = self.__GF_Hermite_ZetaPoints_Generator(Hermite_RootPoints_list)
+
+            # Computing Hermite Weights
+            Hermite_Weight_list = self.__GF_Hermite_Weights_Generator(ZetaPoints_list, Hermite_p_1)
+
+            # Adding ZetaPoints_list and Hermite_Weight_list as an attribute
+            self.ZetaPoints_list = ZetaPoints_list
+
+            self.Hermite_Weight_list = Hermite_Weight_list
+
+        elif(GF_Type == 2):  # Gaussian-Cubature
         
+            # Computing Zeta Points for Gaussian-Cubature
+            ZetaPoints_list = self.__GF_Cubature_ZetaPoints_Generator()
+
+            # Adding ZetaPoints_list as an attribute
+            self.ZetaPoints_list = ZetaPoints_list
+
 
     def set_f(self, f):
         """Sets the system dynamics function for a non-linear time-varying (LTV) system
@@ -1048,6 +1073,163 @@ class Gaussian_Filter_Smoother:
         """
         self.R = R
 
+    def __GF_Hermite_Root_Generator(self):
+        """Computes roots of the p^{th} order Hermite polynomial for Gaussian-Hermite Filter 
+
+        Returns:
+            Hermite_RootPoints_List (list of floats): List of roots of the p^{th} order Hermite Polynomial
+            Hermite_p_1 (numpy poly1d): p-1 Hermite Polynomial
+        """
+
+        # Initializing Hermite 0,1 Polynomials list
+        Hermite_Polynomial_list = [np.poly1d([1]), np.poly1d([1,0])]
+
+        ## Building p^{th} order Hermite Polynomial
+        x = np.poly1d([1,0])  # Initialization
+        p = np.poly1d([self.p])  # Initialization
+
+        # FOR LOOP: For each Hermite Polynomial greater than h_1 uptil p
+        for ii in range(self.p - 1):
+
+            # Getting p^{th} and p-1^{th} Hermite Ploynomial
+            h_p = Hermite_Polynomial_list[ii+1]
+            h_p_1 = Hermite_Polynomial_list[ii]
+
+            # Computing p+1^{th} Hermite Polynomial
+            h = np.polysub(np.polymul(x, h_p), np.polymul(p, h_p_1))
+
+            # Appending new Hermite Polynomial to Hermite_Polynomial_list
+            Hermite_Polynomial_list.append(h)
+
+        # Getting the p^{th} order Hermite Polynomial
+        H_p = Hermite_Polynomial_list[-1]
+
+        # Computing Roots of H_p
+        Hermite_RootPoints_array = np.roots(H_p)
+
+        # Converting Hermite_RootPoints_array to Hermite_RootPoints_list
+        Hermite_RootPoints_list = Hermite_RootPoints_array.tolist()
+
+        # Getting p-1 Hermite Polynomial
+        Hermite_p_1 = Hermite_Polynomial_list[-2]
+
+        # Return Statement
+        return Hermite_RootPoints_list, Hermite_p_1
+    
+    def __GF_Hermite_ZetaPoints_Generator(self, Hermite_RootPoints_list):
+        """Computes Zeta Points for Gaussian-Hermite Filter through cartesian product of the roots of the p^{th} order Hermite Polynomial  
+
+        Args:
+            Hermite_RootPoints_list (list of floats): List of roots of the p^{th} order Hermite Polynomial
+
+        Returns:
+            ZetaPoints_list (list of numpy.array): List of Zeta Point vectors
+        """
+
+        ZetaPoints_array = np.ones((1, self.n))  # Initialization
+
+        # Initializing ZetaPoints_array with first Hermite Root
+        ZetaPoints_array = Hermite_RootPoints_list[0]*ZetaPoints_array
+
+        ## Computing all the possible Zeta Points for the given state dimension (n) and Hermite roots (p) i.e. p^(n)
+        ZetaPoints_array_1 = ZetaPoints_array  # Initialization
+        
+        # FOR LOOP: For each state
+        for ii in range(self.n):
+
+            # FOR LOOP: For each Hermite root point except the first root
+            for jj in range(len(Hermite_RootPoints_list-1)):
+
+                # Crerating new ZetaPoints_array_1 with next Hermite root
+                ZetaPoints_array_1[:,ii] = Hermite_RootPoints_list[jj+1]*np.ones((ZetaPoints_array_1.shape[0], ))
+
+                # Stacking ZetaPoints_array with new ZetaPoints_array_1
+                ZetaPoints_array = np.vstack((ZetaPoints_array, ZetaPoints_array_1))
+
+            # Updating ZetaPoints_array_1
+            ZetaPoints_array_1 = ZetaPoints_array
+
+        ## Converting ZetaPoints_array to a List of Vectors
+        ZetaPoints_list = []  # Initialization
+
+        # FOR LOOP: For each Zeta Point
+        for ii in range(ZetaPoints_array.shape[0]):
+
+            ZetaPoints_list.append(ZetaPoints_array[ii,:].reshape((self.n, 1)))
+
+        # Return statement
+        return ZetaPoints_list
+    
+    def __GF_Hermite_Weights_Generator(self, ZetaPoints_list, Hermite_p_1):
+        """Computes weights for Gaussian-Hermite Filter  
+
+        Args:
+            ZetaPoints_list (list of numpy.array): List of Zeta Point vectors
+            Hermite_p_1 (numpy poly1d): p-1 Hermite Polynomial
+
+        Returns:
+            Hermite_Weight_list (list of floats): List of weights for each Zeta Point vector
+        """
+
+        Hermite_Weight_list = []  # Initialization
+
+        ## Computing Hermite Weights
+
+        # FOR LOOP: For each Zeta Point
+        for ii in range(len(ZetaPoints_list)):
+
+            # Current Zeta Point
+            Current_ZetaPoint = ZetaPoints_list[ii]
+
+            # Initialization
+            Current_Hermite_Weight = 1.0
+
+            # FOR LOOP: For eachelement in Current Zeta Point
+            for jj in range(Current_ZetaPoint.shape[0]):
+
+                Current_Hermite_Weight = Current_Hermite_Weight * ((mt.factorial(self.p))/((self.p**2)*(Hermite_p_1(Current_ZetaPoint[jj,1]))**(2)))
+
+            # Appending Current Weight to Hermite_Weight_list
+            Hermite_Weight_list.append(Current_Hermite_Weight)
+
+        # Return statement
+        return Hermite_Weight_list
+    
+    def __GF_Cubature_ZetaPoints_Generator(self):
+        """Computes Zeta Points for Gaussian-Cubature Filter   
+
+        Returns:
+            ZetaPoints_list (list of numpy.array): List of Zeta Point vectors
+        """    
+
+        ZetaPoints_list = []  # Initialization
+
+        ## Computing Zeta Points for Gaussian Cubature
+        ZetaPoint_Vector_Ini = np.zeros((self.n, 1)) # Initialization
+
+        # Computing squareroot of n
+        sqrt_n = mt.sqrt(self.n)
+
+        # FOR LOOP: For each of the 2*n Zeta Points
+        for ii in range(2*self.n):
+
+            ZetaPoint_Vector =  ZetaPoint_Vector_Ini
+
+            if (ii < self.n): 
+
+                ZetaPoint_Vector[ii,0] = sqrt_n
+
+            else:
+
+                ZetaPoint_Vector[ii,0] = -sqrt_n
+
+            # Appending ZetaPoint_Vector to ZetaPoints_list
+            ZetaPoints_list.append(ZetaPoint_Vector)
+
+        # Return statement
+        return ZetaPoints_list
+
+
     def __GF_SigmPoints_Generator(self, m, P):
         """Computes Sigma Points for Gaussian Filter
 
@@ -1071,7 +1253,36 @@ class Gaussian_Filter_Smoother:
         sqrt_P_k = np.abs(np.dot(P_k_Right_EigVec,np.dot(P_k_EigValues_Diag_Sqrt, np.linalg.inv(P_k_Right_EigVec))))
 
         # Generating Sigma Points based on type of Gaussian Filter
-      
+        if (self.GF_Type ==1 ):  # Gaussian-Hermite
+
+            # Computing Zeta Points as cartesian product of the roots of Hermite-Polynomial
+            ZetaPoints_list = self.ZetaPoints_list
+            
+            # FOR LOOP: For each Zeta Point
+            for ii in range(len(ZetaPoints_list)):            
+
+                # Computing Sigma Point
+                Sigma_X_Point = m + np.dot(sqrt_P_k, ZetaPoints_list[ii])
+
+                # Appending Sigma_X_Points_list
+                Sigma_X_Points_list.append(Sigma_X_Point)         
+
+        elif(self.GF_Type == 2):  # Gaussian-Cubature
+
+            # Computing Zeta Points for Gaussian Cubature
+            ZetaPoints_list = self.ZetaPoints_list
+
+            # FOR LOOP: For each Zeta Point
+            for ii in range(len(ZetaPoints_list)):            
+
+                # Computing Sigma Point
+                Sigma_X_Point = m + np.dot(sqrt_P_k, ZetaPoints_list[ii])
+
+                # Appending Sigma_X_Points_list
+                Sigma_X_Points_list.append(Sigma_X_Point)
+
+        # Return statement
+        return Sigma_X_Points_list
         
     def __GF_SigmPoints_DynamicModel(self, Sigma_X_Points_list, u_k):
         """Computes Sigma Points through the dyanmic model for the Gaussian Filter
@@ -1135,61 +1346,83 @@ class Gaussian_Filter_Smoother:
             D_k (numpy.array): Predicted state cross-covariance
         """    
 
-        # Computing predicted mean of the state
+        # Initializing predicted mean of the state
         m_k_ = np.zeros((self.n, 1)) # Intialization
 
-        # FOR LOOP: For each Sigma Point in Sigma_X_Points_Tilde_list
-        for ii in range(len(Sigma_X_Points_Tilde_list)):
-
-            if (ii == 0):
-
-                m_k_ = m_k_ + (self.W_0_m * Sigma_X_Points_Tilde_list[ii]) 
-
-            else:
-
-                m_k_ = m_k_ + (self.W_i_m * Sigma_X_Points_Tilde_list[ii]) 
-
-        # Computing predicted covariance of the state
+        # Initializing predicted covariance of the state
         P_k_ = np.zeros((self.n, self.n)) # Intialization
-
-        # FOR LOOP: For each Sigma Point in Sigma_X_Points_Tilde_list
-        for ii in range(len(Sigma_X_Points_Tilde_list)):
-
-            if (ii == 0):
-
-                Sigma_m_k = Sigma_X_Points_Tilde_list[ii] - m_k_ 
-
-                P_k_ = P_k_ + (self.W_0_c * np.dot(Sigma_m_k, Sigma_m_k.transpose())) 
-
-            else:
-
-                Sigma_m_k = Sigma_X_Points_Tilde_list[ii] - m_k_ 
-
-                P_k_ = P_k_ + (self.W_i_c * np.dot(Sigma_m_k, Sigma_m_k.transpose()))  
-
-        P_k_ = P_k_ + self.Q
 
         # Computing predicted cross-covariance of the state
         D_k = np.zeros((self.n, self.n)) # Intialization
 
-        # FOR LOOP: For each Sigma Point in Sigma_X_Points_Tilde_list
-        for ii in range(len(Sigma_X_Points_Tilde_list)):
+        ## Computing Predicted Mean/Covariance of the state depending on Gaussian Filter type
+        if (self.GF_Type == 1):  # Gaussian-Hermite
 
-            if (ii == 0):
+            # Computing Predicted Mean
+
+            # FOR LOOP: For each Sigma Point in Sigma_X_Points_Tilde_list
+            for ii in range(len(Sigma_X_Points_Tilde_list)):
+
+                m_k_ = m_k_ + (self.Hermite_Weight_list[ii] * Sigma_X_Points_Tilde_list[ii])        
+
+            # Computing Predicted Covariance
+
+            # FOR LOOP: For each Sigma Point in Sigma_X_Points_Tilde_list
+            for ii in range(len(Sigma_X_Points_Tilde_list)):
+                    
+                Sigma_m_k = Sigma_X_Points_Tilde_list[ii] - m_k_ 
+
+                P_k_ = P_k_ + (self.Hermite_Weight_list[ii] * np.dot(Sigma_m_k, Sigma_m_k.transpose())) 
+
+            P_k_ = P_k_ + self.Q
+            
+            # Computing predicted cross-covariance of the state
+            
+            # FOR LOOP: For each Sigma Point in Sigma_X_Points_Tilde_list
+            for ii in range(len(Sigma_X_Points_Tilde_list)):
 
                 Sigma_m_k = Sigma_X_Points_list[ii] - self.m_k 
 
                 Sigma_Tilde_m_k = Sigma_X_Points_Tilde_list[ii] - m_k_ 
 
-                D_k = D_k + (self.W_0_c * np.dot(Sigma_m_k, Sigma_Tilde_m_k.transpose())) 
+                D_k = D_k + (self.Hermite_Weight_list[ii] * np.dot(Sigma_m_k, Sigma_Tilde_m_k.transpose()))
 
-            else:
+        elif (self.GF_Type == 2):  # Gaussian-Cubature
+
+            # Computing Predicted Mean
+
+            # FOR LOOP: For each Sigma Point in Sigma_X_Points_Tilde_list
+            for ii in range(len(Sigma_X_Points_Tilde_list)):
+
+                m_k_ = m_k_ + (Sigma_X_Points_Tilde_list[ii]) 
+
+            m_k_ = (1/(2*self.n)) * m_k_         
+
+            # Computing Predicted Covariance
+
+            # FOR LOOP: For each Sigma Point in Sigma_X_Points_Tilde_list
+            for ii in range(len(Sigma_X_Points_Tilde_list)):
+                
+                Sigma_m_k = Sigma_X_Points_Tilde_list[ii] - m_k_ 
+
+                P_k_ = P_k_ + (np.dot(Sigma_m_k, Sigma_m_k.transpose()))  
+
+            P_k_ = (1/(2*self.n)) * P_k_ 
+
+            P_k_ = P_k_ + self.Q
+            
+            # Computing predicted cross-covariance of the state
+
+            # FOR LOOP: For each Sigma Point in Sigma_X_Points_Tilde_list
+            for ii in range(len(Sigma_X_Points_Tilde_list)):
 
                 Sigma_m_k = Sigma_X_Points_list[ii] - self.m_k 
 
                 Sigma_Tilde_m_k = Sigma_X_Points_Tilde_list[ii] - m_k_ 
 
-                D_k = D_k + (self.W_i_c * np.dot(Sigma_m_k, Sigma_Tilde_m_k.transpose()))
+                D_k = D_k + (np.dot(Sigma_m_k, Sigma_Tilde_m_k.transpose()))
+
+            D_k = (1/(2*self.n)) * D_k
 
         # Return statement
         return m_k_, P_k_, D_k  
@@ -1211,58 +1444,80 @@ class Gaussian_Filter_Smoother:
         # Computing predicted mean of the measurement
         mu_k = np.zeros((self.m, 1)) # Intialization
 
-        # FOR LOOP: For each Sigma Point in Sigma_Y_Points_Tilde_list
-        for ii in range(len(Sigma_Y_Points_Tilde_list)):
-
-            if (ii == 0):
-
-                mu_k = mu_k + (self.W_0_m * Sigma_Y_Points_Tilde_list[ii]) 
-
-            else:
-
-                mu_k = mu_k + (self.W_i_m * Sigma_Y_Points_Tilde_list[ii]) 
-
         # Computing predicted covariance of the measurement
         S_k = np.zeros((self.m, self.m)) # Intialization
-
-        # FOR LOOP: For each Sigma Point in Sigma_Y_Points_Tilde_list
-        for ii in range(len(Sigma_Y_Points_Tilde_list)):
-
-            if (ii == 0):
-
-                Sigma_mu_k = Sigma_Y_Points_Tilde_list[ii] - mu_k 
-
-                S_k = S_k + (self.W_0_c * np.dot(Sigma_mu_k, Sigma_mu_k.transpose())) 
-
-            else:
-
-                Sigma_mu_k = Sigma_Y_Points_Tilde_list[ii] - mu_k 
-
-                S_k = S_k + (self.W_i_c * np.dot(Sigma_mu_k, Sigma_mu_k.transpose()))  
-
-        S_k = S_k + self.R
 
         # Computing predicted cross-covariance between state and measurement
         C_k = np.zeros((self.n, self.m)) # Intialization
 
-        # FOR LOOP: For each Sigma Point in Sigma_Y_Points_Tilde_list
-        for ii in range(len(Sigma_Y_Points_Tilde_list)):
+        ## Computing Predicted Mean/Covariance/Cross-covariance of the measurement/state depending on Gaussian Filter type
+        if (self.GF_Type == 1):  # Gaussian-Hermite
 
-            if (ii == 0):
+            # Computing Predicted Mean
+
+            # FOR LOOP: For each Sigma Point in Sigma_Y_Points_Tilde_list
+            for ii in range(len(Sigma_Y_Points_Tilde_list)):
+
+                mu_k = mu_k + (self.Hermite_Weight_list[ii] * Sigma_Y_Points_Tilde_list[ii]) 
+
+            # Computing Predicted Covariance
+
+            # FOR LOOP: For each Sigma Point in Sigma_Y_Points_Tilde_list
+            for ii in range(len(Sigma_Y_Points_Tilde_list)):
+                    
+                Sigma_mu_k = Sigma_Y_Points_Tilde_list[ii] - mu_k 
+
+                S_k = S_k + (self.Hermite_Weight_list[ii] * np.dot(Sigma_mu_k, Sigma_mu_k.transpose())) 
+
+            S_k = S_k + self.R
+
+            # Computing Predicted Cross-Covariance
+
+            # FOR LOOP: For each Sigma Point in Sigma_Y_Points_Tilde_list
+            for ii in range(len(Sigma_Y_Points_Tilde_list)):
 
                 Sigma_m_k_ = Sigma_X_Points_list[ii] - m_k_ 
 
                 Sigma_mu_k = Sigma_Y_Points_Tilde_list[ii] - mu_k 
 
-                C_k = C_k + (self.W_0_c * np.dot(Sigma_m_k_, Sigma_mu_k.transpose())) 
+                C_k = C_k + (self.Hermite_Weight_list[ii] * np.dot(Sigma_m_k_, Sigma_mu_k.transpose()))  
 
-            else:
+        elif (self.GF_Type == 2):  # Gaussian-Cubature
+
+            # Computing Predicted Mean
+
+            # FOR LOOP: For each Sigma Point in Sigma_Y_Points_Tilde_list
+            for ii in range(len(Sigma_Y_Points_Tilde_list)):
+
+                mu_k = mu_k + (Sigma_Y_Points_Tilde_list[ii]) 
+
+            mu_k = (1/(2*self.n)) * mu_k
+
+            # Computing Predicted Covariance
+
+            # FOR LOOP: For each Sigma Point in Sigma_Y_Points_Tilde_list
+            for ii in range(len(Sigma_Y_Points_Tilde_list)):
+                    
+                Sigma_mu_k = Sigma_Y_Points_Tilde_list[ii] - mu_k 
+
+                S_k = S_k + (np.dot(Sigma_mu_k, Sigma_mu_k.transpose())) 
+
+            S_k = (1/(2*self.n)) * S_k 
+
+            S_k = S_k + self.R
+
+            # Computing Predicted Cross-Covariance
+
+            # FOR LOOP: For each Sigma Point in Sigma_Y_Points_Tilde_list
+            for ii in range(len(Sigma_Y_Points_Tilde_list)):
 
                 Sigma_m_k_ = Sigma_X_Points_list[ii] - m_k_ 
 
                 Sigma_mu_k = Sigma_Y_Points_Tilde_list[ii] - mu_k 
 
-                C_k = C_k + (self.W_i_c * np.dot(Sigma_m_k_, Sigma_mu_k.transpose()))  
+                C_k = C_k + (np.dot(Sigma_m_k_, Sigma_mu_k.transpose()))  
+
+            C_k = (1/(2*self.n)) * C_k
 
         # Return statement
         return mu_k, S_k, C_k

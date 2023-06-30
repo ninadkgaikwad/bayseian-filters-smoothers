@@ -19,11 +19,11 @@ class Boy:
     def __init__(self, A):
         self.A=A
 
-    def __Squared(self, a,b):
+    def Squared(self, a,b):
         return a**2, b**2
 
     def B(self, b,d):
-        b1, b2 = self.__Squared(b,d)
+        b1, b2 = self.Squared(b,d)
         c = self.A(b1,b2)
         return c
     
@@ -33,7 +33,7 @@ def AA(a,b):
 
 Boy1 = Boy(AA)
 
-cc = Boy1.B(10,10)
+cc = Boy1.B(10,5)
 
 print(cc)
 

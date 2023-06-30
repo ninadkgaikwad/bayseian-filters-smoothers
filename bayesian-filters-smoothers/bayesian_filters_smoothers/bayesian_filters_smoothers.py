@@ -198,14 +198,14 @@ class Kalman_Filter_Smoother:
         for ii in range(Data_Len):
 
             # Computing predict step of Kalman Filter
-            m_k_, P_k_ = self.Kalman_Predict(self, u_k_list[ii])
+            m_k_, P_k_ = self.Kalman_Predict(u_k_list[ii])
 
             # Appending predicted mean/covariance lists
             m_k__list .append(m_k_)
             P_k__list .append(P_k_)
 
             # Computing update step of Kalman Filter
-            self.Kalman_Update(self, y_k_list[ii], m_k_, P_k_)
+            self.Kalman_Update(y_k_list[ii], m_k_, P_k_)
 
             # Appending updated mean/covarince lists
             m_k_list .append(self.m_k)
@@ -423,14 +423,14 @@ class Extended_Kalman_Filter_Smoother:
         for ii in range(Data_Len):
 
             # Computing predict step of Kalman Filter
-            m_k_, P_k_ = self.Extended_Kalman_Predict(self, u_k_list[ii])
+            m_k_, P_k_ = self.Extended_Kalman_Predict(u_k_list[ii])
 
             # Appending predicted mean/covariance lists
             m_k__list .append(m_k_)
             P_k__list .append(P_k_)
 
             # Computing update step of Kalman Filter
-            self.Extended_Kalman_Update(self, y_k_list[ii], m_k_, P_k_)
+            self.Extended_Kalman_Update(y_k_list[ii], m_k_, P_k_)
 
             # Appending updated mean/covarince lists
             m_k_list .append(self.m_k)
@@ -910,7 +910,7 @@ class Unscented_Kalman_Filter_Smoother:
         for ii in range(Data_Len):
 
             # Computing predict step of Kalman Filter
-            m_k_, P_k_, D_k = self.Unscented_Kalman_Predict(self, u_k_list[ii])
+            m_k_, P_k_, D_k = self.Unscented_Kalman_Predict(u_k_list[ii])
 
             # Appending predicted mean/covariance lists
             m_k__list .append(m_k_)
@@ -918,7 +918,7 @@ class Unscented_Kalman_Filter_Smoother:
             D_k_list .append(D_k)
 
             # Computing update step of Kalman Filter
-            self.Unscented_Kalman_Update(self, y_k_list[ii], m_k_, P_k_)
+            self.Unscented_Kalman_Update(y_k_list[ii], m_k_, P_k_)
 
             # Appending updated mean/covarince lists
             m_k_list .append(self.m_k)
@@ -1615,7 +1615,7 @@ class Gaussian_Filter_Smoother:
         for ii in range(Data_Len):
 
             # Computing predict step of Kalman Filter
-            m_k_, P_k_, D_k = self.Gaussian_Predict(self, u_k_list[ii])
+            m_k_, P_k_, D_k = self.Gaussian_Predict(u_k_list[ii])
 
             # Appending predicted mean/covariance lists
             m_k__list .append(m_k_)
@@ -1623,7 +1623,7 @@ class Gaussian_Filter_Smoother:
             D_k_list .append(D_k)
 
             # Computing update step of Kalman Filter
-            self.Gaussian_Update(self, y_k_list[ii], m_k_, P_k_)
+            self.Gaussian_Update(y_k_list[ii], m_k_, P_k_)
 
             # Appending updated mean/covarince lists
             m_k_list .append(self.m_k)

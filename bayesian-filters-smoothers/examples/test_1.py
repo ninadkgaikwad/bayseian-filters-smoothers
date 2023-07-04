@@ -12,7 +12,7 @@ if module_path not in sys.path:
 
 import bayesian_filters_smoothers as bfs
 
-from bayesian_filters_smoothers import Kalman_Filter_Smoother as KFS
+from bayesian_filters_smoothers import Extended_Kalman_Filter_Smoother as EKFS
 
 """ a=bfs.addnum(10,10)
 
@@ -25,81 +25,17 @@ print(a) """
 
 ############################################################################################################################################################
 
-def SimplePendulum_Linear_DiscreteTime_System(x_k_1, u_k_1):
-    """Provides discrete time dynamics for a linear simple pendulum system
-    
-    Args:
-        x_k_1 (numpy.array): Previous system state
-        u_k_1 (numpy.array): Previous system measurement
-        g (float): Acceleration due to gravity
-        L (float): Length of the pendulum
-        ts (float): Discrete time-step
-        Q (numpy.array): Process noise true covariance matrix
-        R (numpy.array): Measurement noise true covariance matrix
-        
-    Returns:
-        x_k_true (numpy.array): Current true system state
-        y_k_true (numpy.array): Current true system measurement
-        y_k (numpy.array): Current noise corrupted system measurement        
-    """
-    # Simulation parameters
-    g = 9.86
-    L = 1.
-    Q = 0.01
-    R = 0.1
-    
-    # Create the true Q and R matrices
-    Q = np.reshape(np.array([[Q, 0],[0, Q]]), (2,2))
-    R = np.reshape(np.array([R]), (1,1))
-    
-    # Creating Continuous Time System matrices
-    A = np.reshape(np.array([[0,1],[-(g/L),0]]), (2,2))
-    B = np.reshape(np.array([0,0]), (2,1))
-    C = np.reshape(np.array([0,1]), (1,2))
-    
-    # Creating Discrete Time System matrices
-    A_d = np.eye(2) + (ts*A)
-    B_d = ts*B
-    C_d = C
-    
-    # Computing current true system state
-    x_k_true = (np.dot(A_d, x_k_1) + np.dot(B_d, u_k_1))
-    x_k_true = np.reshape(x_k_true, (2,1))
-    
-    # Computing current true system measurement
-    y_k_true = np.dot(C_d, x_k_true)
-    
-    # Computing Process/Measurement Noise
-    q_k_1 = np.random.multivariate_normal(np.array([0,0]), Q)
-    q_k_1 = np.reshape(q_k_1, (2,1))
-    
-    r_k = np.random.multivariate_normal(np.array([0]), R)
-                                        
-    # Computing noise corrupted system state/measurement
-    x_k = x_k_true + q_k_1
-    y_k = y_k_true + r_k
-                                        
-    # Return statement
-    return x_k_true, y_k_true, x_k, y_k  
-                                        
 # Defining the Simple Pendulum Discrete-Time Nonlinear System Function
-def SimplePendulum_Nonlinear_DiscreteTime_System(x_k_1, u_k_1):
+def SimplePendulum_f(x_k_1, u_k_1):
     """Provides discrete time dynamics for a nonlinear simple pendulum system
     
     Args:
         x_k_1 (numpy.array): Previous system state
         u_k_1 (numpy.array): Previous system measurement
-        g (float): Acceleration due to gravity
-        L (float): Length of the pendulum
-        ts (float): Discrete time-step
-        Q (numpy.array): Process noise true covariance matrix
-        R (numpy.array): Measurement noise true covariance matrix
         
     Returns:
         x_k_true (numpy.array): Current true system state
-        y_k_true (numpy.array): Current true system measurement
-        x_k (numpy.array): Current noise corrupted system state
-        y_k (numpy.array): Current noise corrupted system measurement        
+        x_k (numpy.array): Current noise corrupted system state       
     """
     
     # Simulation parameters
@@ -107,6 +43,7 @@ def SimplePendulum_Nonlinear_DiscreteTime_System(x_k_1, u_k_1):
     L = 1.
     Q = 0.01
     R = 0.1
+    ts = 0.001
     
     # Create the true Q and R matrices
     Q = np.reshape(np.array([[Q, 0],[0, Q]]), (2,2))
@@ -122,22 +59,172 @@ def SimplePendulum_Nonlinear_DiscreteTime_System(x_k_1, u_k_1):
                                         
     x_k_true = np.reshape(np.array([theta_k, omega_k]),(2,1))
     
-    # Computing current true system measurement
-    y_k_true = omega_k_1
-    y_k_true = np.reshape(y_k_true,(1,1))
-    
     # Computing Process/Measurement Noise
     q_k_1 = np.random.multivariate_normal(np.array([0,0]), Q)
     q_k_1 = np.reshape(q_k_1, (2,1))
                                         
+    # Computing noise corrupted system state/measurement
+    x_k = x_k_true + q_k_1
+                                        
+    # Return statement
+    return x_k_true, x_k 
+
+# Defining the Simple Pendulum Discrete-Time Nonlinear Measurement Function
+def SimplePendulum_h(x_k_1):
+    """Provides discrete time dynamics for a nonlinear simple pendulum system
+    
+    Args:
+        x_k_1 (numpy.array): Previous system state
+        
+    Returns:
+        y_k_true (numpy.array): Current true system measurement
+        y_k (numpy.array): Current noise corrupted system measurement        
+    """
+    
+    # Simulation parameters
+    g = 9.86
+    L = 1.
+    Q = 0.01
+    R = 0.001
+    
+    # Create the true Q and R matrices
+    Q = np.reshape(np.array([[Q, 0],[0, Q]]), (2,2))
+    R = np.reshape(np.array([R]), (1,1))
+    
+    # Getting individual state components
+    theta_k_1 = x_k_1[0,0]
+    omega_k_1 = x_k_1[1,0]
+    
+    # Computing current true system state
+    omega_k = omega_k_1  
+    
+    # Computing current true system measurement
+    y_k_true = omega_k
+    y_k_true = np.reshape(y_k_true,(1,1))
+    
+    # Computing Process/Measurement Noise                                        
     r_k = np.random.multivariate_normal(np.array([0]), R)
                                         
     # Computing noise corrupted system state/measurement
-    x_k = x_k_true + q_k_1
     y_k = y_k_true + r_k
                                         
     # Return statement
-    return x_k_true, y_k_true, x_k, y_k 
+    return y_k_true, y_k 
+
+# Defining the Simple Pendulum Discrete-Time Linearized System Function
+def SimplePendulum_F(x_k_1, u_k_1):
+    """Provides discrete time dynamics for a nonlinear simple pendulum system
+    
+    Args:
+        x_k_1 (numpy.array): Previous system state
+        u_k_1 (numpy.array): Previous system measurement
+        
+    Returns:
+        F (numpy.array): System linearized Dynamics Jacobian      
+    """
+    
+    # Simulation parameters
+    g = 9.
+    L = 0.95
+    
+    # Getting individual state components
+    theta_k_1 = x_k_1[0,0]
+    omega_k_1 = x_k_1[1,0]
+    
+    # Computing System State Jacobian
+    F = np.reshape(np.array([[0, 1],[-(g/L)*np.cos(theta_k_1), 0]]),(2,2))
+    
+                                        
+    # Return statement
+    return F 
+
+# Defining the Simple Pendulum Discrete-Time Linearized Measurement Function
+def SimplePendulum_H(x_k_1):
+    """Provides discrete time dynamics for a nonlinear simple pendulum system
+    
+    Args:
+        x_k_1 (numpy.array): Previous system state
+        
+    Returns:
+        H (numpy.array): System linearized Measurement Jacobian      
+    """
+    
+    # Simulation parameters
+    g = 9.
+    L = 0.95
+    
+    # Getting individual state components
+    theta_k_1 = x_k_1[0,0]
+    omega_k_1 = x_k_1[1,0]
+    
+    # Computing System State Jacobian
+    H = np.reshape(np.array([0, 1]),(1,2))
+    
+                                        
+    # Return statement
+    return H 
+
+# Defining the Simple Pendulum Discrete-Time Nonlinear System Function
+def SimplePendulum_f1(x_k_1, u_k_1):
+    """Provides discrete time dynamics for a nonlinear simple pendulum system
+    
+    Args:
+        x_k_1 (numpy.array): Previous system state
+        u_k_1 (numpy.array): Previous system measurement
+        
+    Returns:
+        x_k_true (numpy.array): Current true system state
+        x_k (numpy.array): Current noise corrupted system state       
+    """
+    
+    # Simulation parameters
+    g = 9.
+    L = .95
+    ts = 0.001    
+       
+    # Getting individual state components
+    theta_k_1 = x_k_1[0,0]
+    omega_k_1 = x_k_1[1,0]
+    
+    # Computing current true system state
+    theta_k = theta_k_1 + ts*(omega_k_1)
+    omega_k = omega_k_1 + ts*(-(g/L)*np.sin(theta_k_1)) 
+                                        
+    x_k_true = np.reshape(np.array([theta_k, omega_k]),(2,1))
+                                        
+    # Return statement
+    return x_k_true 
+
+# Defining the Simple Pendulum Discrete-Time Nonlinear Measurement Function
+def SimplePendulum_h1(x_k_1):
+    """Provides discrete time dynamics for a nonlinear simple pendulum system
+    
+    Args:
+        x_k_1 (numpy.array): Previous system state
+        
+    Returns:
+        y_k_true (numpy.array): Current true system measurement
+        y_k (numpy.array): Current noise corrupted system measurement        
+    """
+    
+    # Simulation parameters
+    g = 9.
+    L = .95
+    
+    # Getting individual state components
+    theta_k_1 = x_k_1[0,0]
+    omega_k_1 = x_k_1[1,0]
+    
+    # Computing current true system state
+    omega_k = omega_k_1 
+    
+    # Computing current true system measurement
+    y_k_true = omega_k
+    y_k_true = np.reshape(y_k_true,(1,1))
+                                        
+    # Return statement
+    return y_k_true 
+
 
 ## System Setup
 
@@ -157,13 +244,14 @@ ts = 0.001
 T_start = 0.
 
 # Final Time
-T_final = 10.
+T_final = 20.
 
 ## Plotting Setup
 
 # Plot Size parameters
 Plot_Width = 15
 Plot_Height = 10
+
 
 # Convert initial theta to radians
 theta_ini_rad_true = float(np.radians(theta_ini_deg_true))
@@ -177,42 +265,59 @@ u_k = np.reshape(np.array([u]), (1,1))
 # Create time vector
 time_vector = np.arange(T_start, T_final+ts, ts)
 
+
 # Initializing system true state array to store time evolution
-x_sim_linear_true = x_ini_true
 x_sim_nonlinear_true = x_ini_true
 
 # Initializing system noisy state array to store time evolution
-x_sim_linear_noisy = x_ini_true
 x_sim_nonlinear_noisy = x_ini_true
 
 # Initializing system true measurement array to store time evolution
-y_sim_linear_true = np.reshape(x_ini_true[1,0],(1,1))
 y_sim_nonlinear_true = np.reshape(x_ini_true[1,0],(1,1))
 
 # Initializing system noisy measurement array to store time evolution
-y_sim_linear_noisy = np.reshape(x_ini_true[1,0],(1,1))
 y_sim_nonlinear_noisy = np.reshape(x_ini_true[1,0],(1,1))
 
 # FOR LOOP: For each discrete time-step
 for ii in range(time_vector.shape[0]):
     
     # Computing next state of the Linear system
-    x_k_true, y_k_true, x_k, y_k = SimplePendulum_Linear_DiscreteTime_System(np.reshape(x_sim_linear_true[:,ii],(2,1)), u_k)
+    x_k_true, x_k = SimplePendulum_f(np.reshape(x_sim_nonlinear_true[:,ii],(2,1)), u_k)
     
-    # Storing the states and measurements
-    x_sim_linear_true = np.hstack((x_sim_linear_true, x_k_true))
-    x_sim_linear_noisy = np.hstack((x_sim_linear_noisy, x_k))
-    y_sim_linear_true = np.hstack((y_sim_linear_true, y_k_true))
-    y_sim_linear_noisy = np.hstack((y_sim_linear_noisy, y_k))
-    
-    # Computing next state of the Nonlinear system
-    x_k_true, y_k_true, x_k, y_k = SimplePendulum_Nonlinear_DiscreteTime_System(np.reshape(x_sim_nonlinear_true[:,ii],(2,1)), u_k)
+    y_k_true, y_k = SimplePendulum_h(np.reshape(x_k_true,(2,1)))   
     
     # Storing the states and measurements
     x_sim_nonlinear_true = np.hstack((x_sim_nonlinear_true, x_k_true))
     x_sim_nonlinear_noisy = np.hstack((x_sim_nonlinear_noisy, x_k))
     y_sim_nonlinear_true = np.hstack((y_sim_nonlinear_true, y_k_true))
     y_sim_nonlinear_noisy = np.hstack((y_sim_nonlinear_noisy, y_k))
+
+
+# Setting Figure Size
+plt.rcParams['figure.figsize'] = [Plot_Width, Plot_Height]
+
+# Plotting Figures
+plt.figure()
+
+# Plotting True States of Nonlinear System
+plt.subplot(211)
+plt.plot(time_vector, x_sim_nonlinear_true[:,:-1].transpose(), label=[r'$\theta$ $(rads)$', r'$\omega = y$ $(rads/s)$'])
+plt.xlabel('Time ' + r'$(sec)$', fontsize=12)
+plt.ylabel('States '+ r'$(x)$', fontsize=12)
+plt.title('Simple Pendulum Linear System - True States', fontsize=14)
+plt.legend(loc='upper right')
+plt.grid(True)
+
+
+# Plotting Noisy States of Nonlinear System
+plt.subplot(212)
+plt.plot(time_vector, x_sim_nonlinear_noisy[:,:-1].transpose(), label=[r'$\theta$ $(rads)$', r'$\omega = y$ $(rads/s)$'])
+plt.xlabel('Time ' + r'$(sec)$', fontsize=12)
+plt.ylabel('States '+ r'$(x)$', fontsize=12)
+plt.title('Simple Pendulum Linear System - Noisy States', fontsize=14)
+plt.legend(loc='upper right')
+plt.grid(True)
+#plt.show()
 
 
 ## System Model Setup
@@ -227,54 +332,20 @@ u_model = 0
 ## Filter Setup
 
 # Initial Filter stae mean/covariance
-theta_ini_model = 9.
+theta_ini_model = 15.
 omega_ini_model = 0.5
 
 P_model = 1
 
 # Filter process/measurement noise covariances
-Q_model = 0
-R_model = 0.1
+Q_model = 10
+R_model = 1000
+
 
 ## Model Computations
 
-# Creating Continuous Time Model matrices
-A = np.reshape(np.array([[0,1],[-(g_model/L_model),0]]), (2,2))
-B = np.reshape(np.array([0,0]), (2,1))
-C = np.reshape(np.array([0,1]), (1,2))
-
-# Creating Discrete Time Model matrices
-A_d = np.eye(2) + (ts*A)
-B_d = ts*B
-C_d = C
-
-## Create the input vector list
-
-# Create input vector
+# Create the input vector
 u_k_model = np.reshape(np.array([u_model]), (1,1)) 
-
-# Create the input list
-u_k_model_list = [] 
-
-for ii in range(y_sim_linear_noisy.shape[1]):
-    
-    u_k_model_list.append(u_k_model)
-    
-## Create the measurement vector list
-
-# For measurements from Linear System
-y_sim_linear_noisy_list = []
-
-for ii in range(y_sim_linear_noisy.shape[1]):
-    
-    y_sim_linear_noisy_list.append(np.reshape(y_sim_linear_noisy[:,ii], (1,1)))
-
-# For measurements from Nonlinear System
-y_sim_nonlinear_noisy_list = []
-
-for ii in range(y_sim_nonlinear_noisy.shape[1]):
-    
-    y_sim_nonlinear_noisy_list.append(np.reshape(y_sim_nonlinear_noisy[:,ii], (1,1)))
 
 ## Filter Computations
 
@@ -291,44 +362,28 @@ P_ini_model = P_model*np.eye(2)
 Q_d = np.reshape(np.array([[Q_model, 0],[0, Q_model]]), (2,2))
 R_d = np.reshape(np.array([R_model]), (1,1))
 
-# Creating Object for Linear Model
-SimplePedulum_Linear_KS = KFS(A_d, B_d, C_d, m_ini_model, P_ini_model, Q_d, R_d)
 
-# Creating Object for Nonlinear Model
-SimplePedulum_Nonlinear_KS = KFS(A_d, B_d, C_d, m_ini_model, P_ini_model, Q_d, R_d)
+# Creating Object for Noninear Model
+SimplePedulum_Nonlinear_EKF = EKFS(SimplePendulum_f1, SimplePendulum_F, SimplePendulum_h1, SimplePendulum_H, m_ini_model, P_ini_model, Q_d, R_d)
 
 
-## For measurements coming from Linear System
+# Initializing model filter state array to store time evolution
+x_model_nonlinear_filter = m_ini_model
 
-# Kalman Smoother  
-G_k_list, m_k_s_list, P_k_s_list = SimplePedulum_Linear_KS.Kalman_Smoother(u_k_model_list, y_sim_linear_noisy_list)   
-
-# Storing the Filtered states
-for ii in range(len(m_k_s_list)):
+# FOR LOOP: For each discrete time-step
+for ii in range(y_sim_nonlinear_noisy.shape[1]):
     
-    if (ii == 0):
-        
-        x_model_linear_smoother = m_k_s_list[ii]
-        
-    else:
-        
-        x_model_linear_smoother = np.hstack((x_model_linear_smoother, m_k_s_list[ii]))
-
-## For measurements coming from Nonlinear System
-
-# Kalman Smoother    
-G_k_list, m_k_s_list, P_k_s_list = SimplePedulum_Nonlinear_KS.Kalman_Smoother(u_k_model_list, y_sim_nonlinear_noisy_list) 
-
-# Storing the Filtered states
-for ii in range(len(m_k_s_list)):
+    ## For measurements coming from Nonlinear System
     
-    if (ii == 0):
-        
-        x_model_nonlinear_smoother = m_k_s_list[ii]
-        
-    else:
-        
-        x_model_nonlinear_smoother = np.hstack((x_model_nonlinear_smoother, m_k_s_list[ii]))
+    # Extended Kalman Filter: Predict Step    
+    m_k_, P_k_ = SimplePedulum_Nonlinear_EKF.Extended_Kalman_Predict(u_k_model)
+    
+    # Extended Kalman Filter: Update Step
+    v_k, S_k, K_k = SimplePedulum_Nonlinear_EKF.Extended_Kalman_Update(np.reshape(y_sim_nonlinear_noisy[:,ii], (1,1)), m_k_, P_k_)    
+    
+    # Storing the Filtered states
+    x_k_filter = SimplePedulum_Nonlinear_EKF.m_k
+    x_model_nonlinear_filter = np.hstack((x_model_nonlinear_filter, x_k_filter))
 
 
 # Setting Figure Size
@@ -337,25 +392,14 @@ plt.rcParams['figure.figsize'] = [Plot_Width, Plot_Height]
 # Plotting Figures
 plt.figure()
 
-# Plotting True vs. Filtered States of Linear System
-plt.subplot(211)
-plt.plot(time_vector, x_sim_linear_true[:,:-1].transpose(), linestyle='-', linewidth=3, label=[r'$\theta_{true}$ $(rads)$', r'$\omega_{true}$ $(rads/s)$'])
-plt.plot(time_vector, x_model_linear_smoother[:,:-1].transpose(), linestyle='--', linewidth=1, label=[r'$\theta_{smoother}$ $(rads)$', r'$\omega_{smoother}$ $(rads/s)$'])
-plt.xlabel('Time ' + r'$(sec)$', fontsize=12)
-plt.ylabel('States '+ r'$(x)$', fontsize=12)
-plt.title('Simple Pendulum Linear System - True vs. Smoothed States', fontsize=14)
-plt.legend(loc='upper right')
-plt.grid(True)
-
-
 # Plotting True vs. Filtered States of Nonlinear System
-plt.subplot(212)
+plt.subplot(111)
 plt.plot(time_vector, x_sim_nonlinear_true[:,:-1].transpose(), linestyle='-', linewidth=3, label=[r'$\theta_{true}$ $(rads)$', r'$\omega_{true}$ $(rads/s)$'])
-plt.plot(time_vector, x_model_nonlinear_smoother[:,:-1].transpose(), linestyle='--', linewidth=1, label=[r'$\theta_{smoother}$ $(rads)$', r'$\omega_{smoother}$ $(rads/s)$'])
+plt.plot(time_vector, x_model_nonlinear_filter[:,:-2].transpose(), linestyle='--', linewidth=1, label=[r'$\theta_{filter}$ $(rads)$', r'$\omega_{filter}$ $(rads/s)$'])
 plt.xlabel('Time ' + r'$(sec)$', fontsize=12)
 plt.ylabel('States '+ r'$(x)$', fontsize=12)
-plt.title('Simple Pendulum Nonlinear System - True vs. Smoothed States', fontsize=14)
+plt.title('Simple Pendulum Nonlinear System - True vs. Filtered States', fontsize=14)
 plt.legend(loc='upper right')
 plt.grid(True)
-
 plt.show()
+

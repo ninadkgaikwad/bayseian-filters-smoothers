@@ -259,10 +259,10 @@ class Extended_Kalman_Filter_Smoother:
     """Creates an object to handle Extended Kalman Filtering and Smoothing for Linear Time Invariant (LTI) System
 
     Attributes:
-        A (numpy.array): LTI system matrix
-        B (numpy.array): LTI input matrix
-        C (numpy.array): LTI output matrix
-        D (numpy.array): LTI feedforward matrix
+        f (function(state,input) => numpy.array): Non-linear dynamics function which outputs state vector
+        F (function(state,input) => numpy.array): Linearized system dynamics which outputs a matrix
+        h (function(state) => numpy.array): Non-linear output function which outputs mesurement vector
+        H (function(state) => numpy.array): Linearized output function which outputs a matrix
         m_k (numpy.array): State mean vector
         P_k (numpy.array): State covariance matrix
         Q (numpy.array): Process error covariance matrix

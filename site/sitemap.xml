@@ -2,42 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://github.com/ninadkgaikwad/bayseian-filters-smoothers/index.html</loc>
-         <lastmod>2023-06-30</lastmod>
+         <lastmod>2023-07-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://github.com/ninadkgaikwad/bayseian-filters-smoothers/ExtendedKalmanFilter_Example.html</loc>
+         <lastmod>2023-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/ninadkgaikwad/bayseian-filters-smoothers/KalmanFilter_Example.html</loc>
-         <lastmod>2023-06-30</lastmod>
+         <lastmod>2023-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/ninadkgaikwad/bayseian-filters-smoothers/api_reference_EKF.html</loc>
-         <lastmod>2023-06-30</lastmod>
+         <lastmod>2023-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/ninadkgaikwad/bayseian-filters-smoothers/api_reference_GF.html</loc>
-         <lastmod>2023-06-30</lastmod>
+         <lastmod>2023-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/ninadkgaikwad/bayseian-filters-smoothers/api_reference_KF.html</loc>
-         <lastmod>2023-06-30</lastmod>
+         <lastmod>2023-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/ninadkgaikwad/bayseian-filters-smoothers/api_reference_PF.html</loc>
-         <lastmod>2023-06-30</lastmod>
+         <lastmod>2023-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/ninadkgaikwad/bayseian-filters-smoothers/api_reference_UKF.html</loc>
-         <lastmod>2023-06-30</lastmod>
+         <lastmod>2023-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/ninadkgaikwad/bayseian-filters-smoothers/userguide.html</loc>
-         <lastmod>2023-06-30</lastmod>
+         <lastmod>2023-07-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

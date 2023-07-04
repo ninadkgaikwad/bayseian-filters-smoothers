@@ -12,6 +12,7 @@ nav:
   - User Guide: 
     - Basic Examples: userguide.md
     - Kalman Filter/Smoother Example: KalmanFilter_Example.ipynb
+    - Extended Kalman Filter/Smoother Example: ExtendedKalmanFilter_Example.ipynb
 
 theme: readthedocs
 

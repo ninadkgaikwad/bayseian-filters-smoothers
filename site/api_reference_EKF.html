@@ -62,6 +62,8 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="KalmanFilter_Example.html">Kalman Filter/Smoother Example</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="ExtendedKalmanFilter_Example.html">Extended Kalman Filter/Smoother Example</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -130,35 +132,35 @@ Extended Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a non
       <td class="field-body">
         <ul class="first simple">
             <li>
-              <b>A</b>
-                  (<code>numpy.<span title="numpy.array">array</span></code>)
+              <b>f</b>
+                  (<code>function(state,input) =&gt; numpy.array</code>)
               –
               <div class="doc-md-description">
-                <p>LTI system matrix</p>
+                <p>Non-linear dynamics function which outputs state vector</p>
               </div>
             </li>
             <li>
-              <b>B</b>
-                  (<code>numpy.<span title="numpy.array">array</span></code>)
+              <b>F</b>
+                  (<code>function(state,input) =&gt; numpy.array</code>)
               –
               <div class="doc-md-description">
-                <p>LTI input matrix</p>
+                <p>Linearized system dynamics which outputs a matrix</p>
               </div>
             </li>
             <li>
-              <b>C</b>
-                  (<code>numpy.<span title="numpy.array">array</span></code>)
+              <b>h</b>
+                  (<code>function(state) =&gt; numpy.array</code>)
               –
               <div class="doc-md-description">
-                <p>LTI output matrix</p>
+                <p>Non-linear output function which outputs mesurement vector</p>
               </div>
             </li>
             <li>
-              <b>D</b>
-                  (<code>numpy.<span title="numpy.array">array</span></code>)
+              <b>H</b>
+                  (<code>function(state) =&gt; numpy.array</code>)
               –
               <div class="doc-md-description">
-                <p>LTI feedforward matrix</p>
+                <p>Linearized output function which outputs a matrix</p>
               </div>
             </li>
             <li>
@@ -429,10 +431,10 @@ Extended Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a non
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates an object to handle Extended Kalman Filtering and Smoothing for Linear Time Invariant (LTI) System</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        A (numpy.array): LTI system matrix</span>
-<span class="sd">        B (numpy.array): LTI input matrix</span>
-<span class="sd">        C (numpy.array): LTI output matrix</span>
-<span class="sd">        D (numpy.array): LTI feedforward matrix</span>
+<span class="sd">        f (function(state,input) =&gt; numpy.array): Non-linear dynamics function which outputs state vector</span>
+<span class="sd">        F (function(state,input) =&gt; numpy.array): Linearized system dynamics which outputs a matrix</span>
+<span class="sd">        h (function(state) =&gt; numpy.array): Non-linear output function which outputs mesurement vector</span>
+<span class="sd">        H (function(state) =&gt; numpy.array): Linearized output function which outputs a matrix</span>
 <span class="sd">        m_k (numpy.array): State mean vector</span>
 <span class="sd">        P_k (numpy.array): State covariance matrix</span>
 <span class="sd">        Q (numpy.array): Process error covariance matrix</span>

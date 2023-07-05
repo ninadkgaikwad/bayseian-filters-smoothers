@@ -12,7 +12,7 @@ if module_path not in sys.path:
 
 import bayesian_filters_smoothers as bfs
 
-from bayesian_filters_smoothers import Extended_Kalman_Filter_Smoother as EKFS
+from bayesian_filters_smoothers import Unscented_Kalman_Filter_Smoother as UKFS
 
 """ a=bfs.addnum(10,10)
 
@@ -42,7 +42,7 @@ def SimplePendulum_f(x_k_1, u_k_1):
     g = 9.86
     L = 1.
     Q = 0.01
-    R = 0.1
+    R = 0.001
     ts = 0.001
     
     # Create the true Q and R matrices
@@ -244,7 +244,7 @@ ts = 0.001
 T_start = 0.
 
 # Final Time
-T_final = 20.
+T_final = 10.
 
 ## Plotting Setup
 
@@ -332,15 +332,24 @@ u_model = 0
 ## Filter Setup
 
 # Initial Filter stae mean/covariance
-theta_ini_model = 15.
+theta_ini_model = 9.
 omega_ini_model = 0.5
 
 P_model = 1
 
-# Filter process/measurement noise covariances
-Q_model = 10
-R_model = 1000
+# Filter constant parameters
+n = 2  # Dimension of states of the system
+m = 1  # Dimension of measurements of the system
 
+alpha = 0.7  # Controls spread of Sigma Points about mean
+k = 0.7  # Controls spread of Sigma Points about mean
+beta = 0.1  # Helps to incorporate prior information abou thwe non-Gaussian
+
+
+
+# Filter process/measurement noise covariances
+Q_model = 100
+R_model = 0.01
 
 ## Model Computations
 
@@ -364,7 +373,7 @@ R_d = np.reshape(np.array([R_model]), (1,1))
 
 
 # Creating Object for Noninear Model
-SimplePedulum_Nonlinear_EKF = EKFS(SimplePendulum_f1, SimplePendulum_F, SimplePendulum_h1, SimplePendulum_H, m_ini_model, P_ini_model, Q_d, R_d)
+SimplePedulum_Nonlinear_UKF = UKFS(SimplePendulum_f1, SimplePendulum_h1, n, m, alpha, k, beta, m_ini_model, P_ini_model, Q_d, R_d)
 
 
 # Initializing model filter state array to store time evolution
@@ -375,18 +384,19 @@ for ii in range(y_sim_nonlinear_noisy.shape[1]):
     
     ## For measurements coming from Nonlinear System
     
-    # Extended Kalman Filter: Predict Step    
-    m_k_, P_k_ = SimplePedulum_Nonlinear_EKF.Extended_Kalman_Predict(u_k_model)
+    # Unscented Kalman Filter: Predict Step    
+    m_k_, P_k_, D_k = SimplePedulum_Nonlinear_UKF.Unscented_Kalman_Predict(u_k_model)
     
-    # Extended Kalman Filter: Update Step
-    v_k, S_k, K_k = SimplePedulum_Nonlinear_EKF.Extended_Kalman_Update(np.reshape(y_sim_nonlinear_noisy[:,ii], (1,1)), m_k_, P_k_)    
+    # Unscented Kalman Filter: Update Step
+    mu_k, S_k, C_k, K_k = SimplePedulum_Nonlinear_UKF.Unscented_Kalman_Update(np.reshape(y_sim_nonlinear_noisy[:,ii], (1,1)), m_k_, P_k_)    
     
     # Storing the Filtered states
-    x_k_filter = SimplePedulum_Nonlinear_EKF.m_k
+    x_k_filter = SimplePedulum_Nonlinear_UKF.m_k
     x_model_nonlinear_filter = np.hstack((x_model_nonlinear_filter, x_k_filter))
 
 
-# Setting Figure Size
+
+    # Setting Figure Size
 plt.rcParams['figure.figsize'] = [Plot_Width, Plot_Height]
 
 # Plotting Figures
@@ -401,5 +411,5 @@ plt.ylabel('States '+ r'$(x)$', fontsize=12)
 plt.title('Simple Pendulum Nonlinear System - True vs. Filtered States', fontsize=14)
 plt.legend(loc='upper right')
 plt.grid(True)
-plt.show()
 
+plt.show()

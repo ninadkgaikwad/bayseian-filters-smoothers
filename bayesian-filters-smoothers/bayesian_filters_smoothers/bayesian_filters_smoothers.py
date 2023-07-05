@@ -490,9 +490,9 @@ class Unscented_Kalman_Filter_Smoother:
         h (function(state) => numpy.array): Non-linear output function which outputs mesurement vector
         n (integer): Number of states        
         m (integer): Number of outputs
-        alpha (float): Parameter for the UKF algorithm
-        k (float): Parameter for the UKF algorithm 
-        beta (float): Parameter of the UKF algorithm       
+        alpha (float): Parameter for the UKF algorithm, controls spread of Sigma Points about mean
+        k (float): Parameter for the UKF algorithm, controls spread of Sigma Points about mean 
+        beta (float): Parameter of the UKF algorithm, helps to incorporate prior information about the non-Gaussian       
         m_k (numpy.array): State mean vector
         P_k (numpy.array): State covariance matrix
         Q (numpy.array): PRocess error covariance matrix
@@ -507,9 +507,9 @@ class Unscented_Kalman_Filter_Smoother:
             h (function(state) => numpy.array): Non-linear output function which outputs mesurement vector
             n (integer): Number of states
             m (integer): Number of outputs
-            alpha (float): Parameter for the UKF algorithm
-            k (float): Parameter for the UKF algorithm 
-            beta (float): Parameter of the UKF algorithm      
+            alpha (float): Parameter for the UKF algorithm, controls spread of Sigma Points about mean
+            k (float): Parameter for the UKF algorithm,  controls spread of Sigma Points about mean
+            beta (float): Parameter of the UKF algorithm, helps to incorporate prior information about the non-Gaussian     
             m_k (numpy.array): State mean vector
             P_k (numpy.array): State covariance matrix
             Q (numpy.array): Process error covariance matrix
@@ -521,11 +521,15 @@ class Unscented_Kalman_Filter_Smoother:
         self.h = h
         self.n = n
         self.m = m
-        self.beta = beta        
+        self.beta = beta  
+        self.k = k      
         self.m_k = m_k
         self.P_k = P_k
         self.Q = Q
         self.R = R
+
+        # Debugging
+        self.counter = 0
 
         # Computing Lambda
         self.Lambda = (alpha**2)*(n+k)-n
@@ -607,7 +611,7 @@ class Unscented_Kalman_Filter_Smoother:
             elif ((ii > 0) and (ii <= self.n)):
 
                 # Computing Sigma Point
-                Sigma_X_Point = m + (sqrt_n_Lambda * sqrt_P_k[:,ii-1])
+                Sigma_X_Point = m + (sqrt_n_Lambda * np.reshape(sqrt_P_k[:,ii-1], (self.n, 1)))
 
                 # Appending Sigma_X_Points_list
                 Sigma_X_Points_list.append(Sigma_X_Point)
@@ -615,7 +619,7 @@ class Unscented_Kalman_Filter_Smoother:
             else:
 
                 # Computing Sigma Point
-                Sigma_X_Point = m - (sqrt_n_Lambda * sqrt_P_k[:,ii-(self.n+1)])
+                Sigma_X_Point = m - (sqrt_n_Lambda * np.reshape(sqrt_P_k[:,ii-(self.n+1)], (self.n, 1)))
 
                 # Appending Sigma_X_Points_list
                 Sigma_X_Points_list.append(Sigma_X_Point)
@@ -838,6 +842,21 @@ class Unscented_Kalman_Filter_Smoother:
         ## Computing predicted mean and covariance of the state
         m_k_, P_k_, D_k = self.__UKF_Predict_State_MeanCovariance(Sigma_X_Points_list, Sigma_X_Points_Tilde_list)
 
+        ## Maintaining Covariance matrix to be Positive Semi-Definite
+        try:
+
+            P_k__Cholesky = np.linalg.cholesky(P_k_)
+
+        except:
+
+            print("Covariance matrix became negative definite")           
+
+            # Debugging
+            self.counter = self.counter +1
+            print('Counter='+str(self.counter))
+
+            P_k_ = np.eye(self.n)
+
         # Return statement
         return m_k_, P_k_, D_k
     
@@ -875,6 +894,21 @@ class Unscented_Kalman_Filter_Smoother:
 
         # Updating state covariance matix
         self.P_k = P_k_ - np.dot(np.dot(K_k, S_k), K_k.transpose())
+
+        ## Maintaining Covariance matrix to be Positive Semi-Definite
+        try:
+
+            P_k_Cholesky = np.linalg.cholesky(self.P_k )
+
+        except:
+
+            print("Covariance matrix became negative definite")
+
+            # Debugging
+            self.counter = self.counter +1
+            print('Counter='+str(self.counter))
+
+            self.P_k  = np.eye(self.n)
 
         # Return statement
         return mu_k, S_k, C_k, K_k

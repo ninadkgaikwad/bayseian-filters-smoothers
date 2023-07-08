@@ -14,6 +14,8 @@ nav:
     - Kalman Filter/Smoother Example: KalmanFilter_Example.ipynb
     - Extended Kalman Filter/Smoother Example: ExtendedKalmanFilter_Example.ipynb
     - Unscented Kalman Filter/Smoother Example: UnscentedKalmanFilter_Example.ipynb
+    - Gaussian Filter/Smoother Gauss-Hermite Example: GaussianFilter_GaussHermiteIntegration_Example.ipynb
+    - Gaussian Filter/Smoother Spherical Cubature Example: GaussianFilter_SphericalCubatureIntegration_Example.ipynb
 
 theme: readthedocs
 

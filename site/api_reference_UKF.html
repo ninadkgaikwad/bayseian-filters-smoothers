@@ -66,6 +66,10 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="UnscentedKalmanFilter_Example.html">Unscented Kalman Filter/Smoother Example</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="GaussianFilter_GaussHermiteIntegration_Example.html">Gaussian Filter/Smoother: Gauss-Hermite Integration Example</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="GaussianFilter_SphericalCubatureIntegration_Example.html">Gaussian Filter/Smoother: Spherical Cubature Integration Example</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -745,11 +749,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="normal"> 998</span>
 <span class="normal"> 999</span>
 <span class="normal">1000</span>
-<span class="normal">1001</span>
-<span class="normal">1002</span>
-<span class="normal">1003</span>
-<span class="normal">1004</span>
-<span class="normal">1005</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Unscented_Kalman_Filter_Smoother</span><span class="p">:</span>
+<span class="normal">1001</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Unscented_Kalman_Filter_Smoother</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates an object to handle Unscented Kalman Filtering and Smoothing for Linear Time Invariant (LTI) System</span>
 
 <span class="sd">    Attributes:</span>
@@ -1112,16 +1112,14 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
         <span class="c1">## Maintaining Covariance matrix to be Positive Semi-Definite</span>
         <span class="k">try</span><span class="p">:</span>
 
-            <span class="n">P_k__Cholesky</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">P_k_</span><span class="p">)</span>
+            <span class="c1"># Checking Semi-Positive-Definiteness</span>
+            <span class="n">P_k_Cholesky</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">P_k_</span><span class="p">)</span>
 
         <span class="k">except</span><span class="p">:</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Covariance matrix became negative definite&quot;</span><span class="p">)</span>           
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Covariance matrix became negative definite&quot;</span><span class="p">)</span>            
 
-            <span class="c1"># Debugging</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+</span><span class="mi">1</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Counter=&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">))</span>
-
+            <span class="c1"># Resetting P to Identity Matrix restoring Semi-Positive Definitieness</span>
             <span class="n">P_k_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
 
         <span class="c1"># Return statement</span>
@@ -1165,16 +1163,14 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
         <span class="c1">## Maintaining Covariance matrix to be Positive Semi-Definite</span>
         <span class="k">try</span><span class="p">:</span>
 
+            <span class="c1"># Checking Semi-Positive-Definiteness</span>
             <span class="n">P_k_Cholesky</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">P_k</span> <span class="p">)</span>
 
         <span class="k">except</span><span class="p">:</span>
 
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Covariance matrix became negative definite&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Covariance matrix became negative definite&quot;</span><span class="p">)</span>            
 
-            <span class="c1"># Debugging</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+</span><span class="mi">1</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Counter=&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">))</span>
-
+            <span class="c1"># Resetting P to Identity Matrix restoring Semi-Positive Definitieness</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">P_k</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
 
         <span class="c1"># Return statement</span>
@@ -1395,9 +1391,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="normal">856</span>
 <span class="normal">857</span>
 <span class="normal">858</span>
-<span class="normal">859</span>
-<span class="normal">860</span>
-<span class="normal">861</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Unscented_Kalman_Predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k</span><span class="p">):</span>
+<span class="normal">859</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Unscented_Kalman_Predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs the predict step of the Unscented Kalman Filter</span>
 
 <span class="sd">    Args:</span>
@@ -1421,16 +1415,14 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
     <span class="c1">## Maintaining Covariance matrix to be Positive Semi-Definite</span>
     <span class="k">try</span><span class="p">:</span>
 
-        <span class="n">P_k__Cholesky</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">P_k_</span><span class="p">)</span>
+        <span class="c1"># Checking Semi-Positive-Definiteness</span>
+        <span class="n">P_k_Cholesky</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">P_k_</span><span class="p">)</span>
 
     <span class="k">except</span><span class="p">:</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Covariance matrix became negative definite&quot;</span><span class="p">)</span>           
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Covariance matrix became negative definite&quot;</span><span class="p">)</span>            
 
-        <span class="c1"># Debugging</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+</span><span class="mi">1</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Counter=&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">))</span>
-
+        <span class="c1"># Resetting P to Identity Matrix restoring Semi-Positive Definitieness</span>
         <span class="n">P_k_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
 
     <span class="c1"># Return statement</span>
@@ -1524,7 +1516,11 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 </table>
       <details class="quote">
         <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 916</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 912</span>
+<span class="normal"> 913</span>
+<span class="normal"> 914</span>
+<span class="normal"> 915</span>
+<span class="normal"> 916</span>
 <span class="normal"> 917</span>
 <span class="normal"> 918</span>
 <span class="normal"> 919</span>
@@ -1609,11 +1605,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="normal"> 998</span>
 <span class="normal"> 999</span>
 <span class="normal">1000</span>
-<span class="normal">1001</span>
-<span class="normal">1002</span>
-<span class="normal">1003</span>
-<span class="normal">1004</span>
-<span class="normal">1005</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Unscented_Kalman_Smoother</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k_list</span><span class="p">,</span> <span class="n">y_k_list</span><span class="p">):</span>
+<span class="normal">1001</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Unscented_Kalman_Smoother</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u_k_list</span><span class="p">,</span> <span class="n">y_k_list</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs the smoothening step of the Unscented Kalman Smoother</span>
 
 <span class="sd">    Args:</span>
@@ -1807,7 +1799,9 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 </table>
       <details class="quote">
         <summary>Source code in <code>bayesian-filters-smoothers\bayesian_filters_smoothers\bayesian_filters_smoothers.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">863</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">861</span>
+<span class="normal">862</span>
+<span class="normal">863</span>
 <span class="normal">864</span>
 <span class="normal">865</span>
 <span class="normal">866</span>
@@ -1854,11 +1848,7 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
 <span class="normal">907</span>
 <span class="normal">908</span>
 <span class="normal">909</span>
-<span class="normal">910</span>
-<span class="normal">911</span>
-<span class="normal">912</span>
-<span class="normal">913</span>
-<span class="normal">914</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Unscented_Kalman_Update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_k</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">):</span>
+<span class="normal">910</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">Unscented_Kalman_Update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_k</span><span class="p">,</span> <span class="n">m_k_</span><span class="p">,</span> <span class="n">P_k_</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Performs the update step of the Unscented Kalman Filter</span>
 
 <span class="sd">    Args:</span>
@@ -1896,16 +1886,14 @@ Unscented Kalman Filter/Smoother is the Bayesian Filter/Smoother applied to a no
     <span class="c1">## Maintaining Covariance matrix to be Positive Semi-Definite</span>
     <span class="k">try</span><span class="p">:</span>
 
+        <span class="c1"># Checking Semi-Positive-Definiteness</span>
         <span class="n">P_k_Cholesky</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">P_k</span> <span class="p">)</span>
 
     <span class="k">except</span><span class="p">:</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Covariance matrix became negative definite&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Covariance matrix became negative definite&quot;</span><span class="p">)</span>            
 
-        <span class="c1"># Debugging</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+</span><span class="mi">1</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Counter=&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">))</span>
-
+        <span class="c1"># Resetting P to Identity Matrix restoring Semi-Positive Definitieness</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">P_k</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
 
     <span class="c1"># Return statement</span>

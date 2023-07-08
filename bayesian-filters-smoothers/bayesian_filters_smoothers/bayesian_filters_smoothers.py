@@ -845,16 +845,14 @@ class Unscented_Kalman_Filter_Smoother:
         ## Maintaining Covariance matrix to be Positive Semi-Definite
         try:
 
-            P_k__Cholesky = np.linalg.cholesky(P_k_)
+            # Checking Semi-Positive-Definiteness
+            P_k_Cholesky = np.linalg.cholesky(P_k_)
 
         except:
 
-            print("Covariance matrix became negative definite")           
+            print("Covariance matrix became negative definite")            
 
-            # Debugging
-            self.counter = self.counter +1
-            print('Counter='+str(self.counter))
-
+            # Resetting P to Identity Matrix restoring Semi-Positive Definitieness
             P_k_ = np.eye(self.n)
 
         # Return statement
@@ -898,16 +896,14 @@ class Unscented_Kalman_Filter_Smoother:
         ## Maintaining Covariance matrix to be Positive Semi-Definite
         try:
 
+            # Checking Semi-Positive-Definiteness
             P_k_Cholesky = np.linalg.cholesky(self.P_k )
 
         except:
 
-            print("Covariance matrix became negative definite")
+            print("Covariance matrix became negative definite")            
 
-            # Debugging
-            self.counter = self.counter +1
-            print('Counter='+str(self.counter))
-
+            # Resetting P to Identity Matrix restoring Semi-Positive Definitieness
             self.P_k  = np.eye(self.n)
 
         # Return statement
@@ -1120,10 +1116,13 @@ class Gaussian_Filter_Smoother:
 
         ## Building p^{th} order Hermite Polynomial
         x = np.poly1d([1,0])  # Initialization
-        p = np.poly1d([self.p])  # Initialization
+        p = 0  # Initialization
 
         # FOR LOOP: For each Hermite Polynomial greater than h_1 uptil p
         for ii in range(self.p - 1):
+
+            # Incrementing p
+            p = p+1
 
             # Getting p^{th} and p-1^{th} Hermite Ploynomial
             h_p = Hermite_Polynomial_list[ii+1]
@@ -1166,13 +1165,13 @@ class Gaussian_Filter_Smoother:
         ZetaPoints_array = Hermite_RootPoints_list[0]*ZetaPoints_array
 
         ## Computing all the possible Zeta Points for the given state dimension (n) and Hermite roots (p) i.e. p^(n)
-        ZetaPoints_array_1 = ZetaPoints_array  # Initialization
+        ZetaPoints_array_1 = np.copy(ZetaPoints_array)  # Initialization
         
         # FOR LOOP: For each state
         for ii in range(self.n):
 
             # FOR LOOP: For each Hermite root point except the first root
-            for jj in range(len(Hermite_RootPoints_list-1)):
+            for jj in range(len(Hermite_RootPoints_list)-1):
 
                 # Crerating new ZetaPoints_array_1 with next Hermite root
                 ZetaPoints_array_1[:,ii] = Hermite_RootPoints_list[jj+1]*np.ones((ZetaPoints_array_1.shape[0], ))
@@ -1181,7 +1180,7 @@ class Gaussian_Filter_Smoother:
                 ZetaPoints_array = np.vstack((ZetaPoints_array, ZetaPoints_array_1))
 
             # Updating ZetaPoints_array_1
-            ZetaPoints_array_1 = ZetaPoints_array
+            ZetaPoints_array_1 = np.copy(ZetaPoints_array)
 
         ## Converting ZetaPoints_array to a List of Vectors
         ZetaPoints_list = []  # Initialization
@@ -1221,7 +1220,7 @@ class Gaussian_Filter_Smoother:
             # FOR LOOP: For eachelement in Current Zeta Point
             for jj in range(Current_ZetaPoint.shape[0]):
 
-                Current_Hermite_Weight = Current_Hermite_Weight * ((mt.factorial(self.p))/((self.p**2)*(Hermite_p_1(Current_ZetaPoint[jj,1]))**(2)))
+                Current_Hermite_Weight = Current_Hermite_Weight * ((mt.factorial(self.p))/((self.p**2)*(Hermite_p_1(Current_ZetaPoint[jj,0]))**(2)))
 
             # Appending Current Weight to Hermite_Weight_list
             Hermite_Weight_list.append(Current_Hermite_Weight)
@@ -1247,7 +1246,7 @@ class Gaussian_Filter_Smoother:
         # FOR LOOP: For each of the 2*n Zeta Points
         for ii in range(2*self.n):
 
-            ZetaPoint_Vector =  ZetaPoint_Vector_Ini
+            ZetaPoint_Vector =  np.copy(ZetaPoint_Vector_Ini)
 
             if (ii < self.n): 
 
@@ -1255,7 +1254,7 @@ class Gaussian_Filter_Smoother:
 
             else:
 
-                ZetaPoint_Vector[ii,0] = -sqrt_n
+                ZetaPoint_Vector[ii-self.n,0] = -sqrt_n
 
             # Appending ZetaPoint_Vector to ZetaPoints_list
             ZetaPoints_list.append(ZetaPoint_Vector)
@@ -1577,6 +1576,19 @@ class Gaussian_Filter_Smoother:
         ## Computing predicted mean and covariance of the state
         m_k_, P_k_, D_k = self.__GF_Predict_State_MeanCovariance(Sigma_X_Points_list, Sigma_X_Points_Tilde_list)
 
+        ## Maintaining Covariance matrix to be Positive Semi-Definite
+        try:
+
+            # Checking Semi-Positive-Definiteness
+            P_k_Cholesky = np.linalg.cholesky(P_k_ )
+
+        except:
+
+            print("Covariance matrix became negative definite")            
+
+            # Resetting P to Identity Matrix restoring Semi-Positive Definitieness
+            P_k_  = np.eye(self.n)
+
         # Return statement
         return m_k_, P_k_, D_k
     
@@ -1614,6 +1626,19 @@ class Gaussian_Filter_Smoother:
 
         # Updating state covariance matix
         self.P_k = P_k_ - np.dot(np.dot(K_k, S_k), K_k.transpose())
+
+        ## Maintaining Covariance matrix to be Positive Semi-Definite
+        try:
+
+            # Checking Semi-Positive-Definiteness
+            P_k_Cholesky = np.linalg.cholesky(self.P_k )
+
+        except:
+
+            print("Covariance matrix became negative definite")            
+
+            # Resetting P to Identity Matrix restoring Semi-Positive Definitieness
+            self.P_k  = np.eye(self.n)
 
         # Return statement
         return mu_k, S_k, C_k, K_k

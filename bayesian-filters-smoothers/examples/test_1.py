@@ -12,7 +12,7 @@ if module_path not in sys.path:
 
 import bayesian_filters_smoothers as bfs
 
-from bayesian_filters_smoothers import Unscented_Kalman_Filter_Smoother as UKFS
+from bayesian_filters_smoothers import Gaussian_Filter_Smoother as GFS
 
 """ a=bfs.addnum(10,10)
 
@@ -338,18 +338,18 @@ omega_ini_model = 0.5
 P_model = 1
 
 # Filter constant parameters
+GF_Type = 2  # GF_Type: 1 - Gauss-Hermite ; 2 - Spherical Cubature 
 n = 2  # Dimension of states of the system
 m = 1  # Dimension of measurements of the system
 
-alpha = 0.7  # Controls spread of Sigma Points about mean
-k = 0.7  # Controls spread of Sigma Points about mean
-beta = 0.1  # Helps to incorporate prior information abou thwe non-Gaussian
+p = 3  # Order of Hermite Polynomial
 
 
 
 # Filter process/measurement noise covariances
 Q_model = 100
 R_model = 0.01
+
 
 ## Model Computations
 
@@ -373,7 +373,8 @@ R_d = np.reshape(np.array([R_model]), (1,1))
 
 
 # Creating Object for Noninear Model
-SimplePedulum_Nonlinear_UKF = UKFS(SimplePendulum_f1, SimplePendulum_h1, n, m, alpha, k, beta, m_ini_model, P_ini_model, Q_d, R_d)
+SimplePedulum_Nonlinear_GF = GFS(GF_Type, SimplePendulum_f1, SimplePendulum_h1, n, m, m_ini_model, P_ini_model, Q_d, R_d, p)
+
 
 
 # Initializing model filter state array to store time evolution
@@ -385,15 +386,14 @@ for ii in range(y_sim_nonlinear_noisy.shape[1]):
     ## For measurements coming from Nonlinear System
     
     # Unscented Kalman Filter: Predict Step    
-    m_k_, P_k_, D_k = SimplePedulum_Nonlinear_UKF.Unscented_Kalman_Predict(u_k_model)
+    m_k_, P_k_, D_k = SimplePedulum_Nonlinear_GF.Gaussian_Predict(u_k_model)
     
     # Unscented Kalman Filter: Update Step
-    mu_k, S_k, C_k, K_k = SimplePedulum_Nonlinear_UKF.Unscented_Kalman_Update(np.reshape(y_sim_nonlinear_noisy[:,ii], (1,1)), m_k_, P_k_)    
+    mu_k, S_k, C_k, K_k = SimplePedulum_Nonlinear_GF.Gaussian_Update(np.reshape(y_sim_nonlinear_noisy[:,ii], (1,1)), m_k_, P_k_)    
     
     # Storing the Filtered states
-    x_k_filter = SimplePedulum_Nonlinear_UKF.m_k
+    x_k_filter = SimplePedulum_Nonlinear_GF.m_k
     x_model_nonlinear_filter = np.hstack((x_model_nonlinear_filter, x_k_filter))
-
 
 
     # Setting Figure Size
@@ -406,6 +406,8 @@ plt.figure()
 plt.subplot(111)
 plt.plot(time_vector, x_sim_nonlinear_true[:,:-1].transpose(), linestyle='-', linewidth=3, label=[r'$\theta_{true}$ $(rads)$', r'$\omega_{true}$ $(rads/s)$'])
 plt.plot(time_vector, x_model_nonlinear_filter[:,:-2].transpose(), linestyle='--', linewidth=1, label=[r'$\theta_{filter}$ $(rads)$', r'$\omega_{filter}$ $(rads/s)$'])
+#plt.plot(time_vector, x_model_nonlinear_filter[0,:-2].transpose(), linestyle='--', linewidth=1)
+
 plt.xlabel('Time ' + r'$(sec)$', fontsize=12)
 plt.ylabel('States '+ r'$(x)$', fontsize=12)
 plt.title('Simple Pendulum Nonlinear System - True vs. Filtered States', fontsize=14)

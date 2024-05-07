@@ -239,7 +239,7 @@ ts = 0.001
 T_start = 0.
 
 # Final Time
-T_final = 5.
+T_final = 10.
 
 ## Plotting Setup
 
@@ -353,8 +353,8 @@ Output_n = 1
 theta_ini_model = 9.
 omega_ini_model = 0.5
 
-g_ini_model = 9.86
-L_ini_model = 1.0
+g_ini_model = 7.2
+L_ini_model = 1.5
 
 # State Covariance
 P_model = 1
@@ -410,11 +410,11 @@ x1_ub = []
 x2_lb = []
 x2_ub = []
 
-g_lb = [9.]
-g_ub = [10.]
+g_lb = [7.]
+g_ub = [12.]
 
-L_lb = [0.9]
-L_ub = [1.1]
+L_lb = [0.5]
+L_ub = [2.0]
 
 v_lb = []
 v_ub = []

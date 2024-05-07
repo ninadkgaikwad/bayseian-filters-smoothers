@@ -209,7 +209,7 @@ def SimplePendulum_F(x_k_1, u_k_1):
     L_k_1 = x_k_1[3,0]
     
     # Computing System State Jacobian
-    F = np.reshape(np.array([[0, 1, 0, 0],[-(g_k_1/L_k_1)*np.cos(theta_k_1), 0, -(1/L_k_1)*np.sin(theta_k_1), (g_k_1/L_k_1**2)*np.sin(theta_k_1)], [0, 0, 0, 0], [0, 0, 0, 0]]),(4,4))
+    F = np.reshape(np.array([[0, 1, 0, 0],[-(g_k_1/L_k_1)*np.cos(theta_k_1), 0, -(1/L_k_1)*np.sin(theta_k_1), (g_k_1/L_k_1**2)*np.sin(theta_k_1)], [0, 0, 1, 0], [0, 0, 0, 1]]),(4,4))
     
                                         
     # Return statement
